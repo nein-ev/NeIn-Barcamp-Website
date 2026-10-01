@@ -23,7 +23,9 @@ Ein Doppelklick auf `index.html` reicht nicht, weil der Browser dann den Session
 
 ## Design-Werkstatt (Farben & Schriften testen)
 
-Unten rechts auf der Seite sitzt der Knopf **„Design“**. Damit lassen sich ausprobieren:
+Die Seite einmal mit **`?design=1`** am Ende der Adresse öffnen (z. B. `…/NeIn-Barcamp-Dashboard/?design=1`).
+Dann sitzt unten rechts der Knopf **„Design“** – auch bei allen weiteren Besuchen in diesem Browser.
+Normale Besucher sehen ihn nicht. Damit lassen sich ausprobieren:
 
 | | |
 |---|---|
@@ -60,7 +62,7 @@ In `assets/js/config.js`:
 
 ```js
 design: {
-  panel: false,        // Panel für Besucher ausblenden
+  panel: false,        // Panel für Besucher ausgeblendet (Standard)
   palette: '3',        // gewählte Palette
   font: 'editorial',   // gewählte Schrift (werkstatt, informatik, lesefreundlich, barrierearm, editorial, sachlich, code)
 },
