@@ -61,10 +61,10 @@ window.BARCAMP_CONFIG = {
   },
 
   design: {
-    // true = Design-Panel (Farben & Schriften testen) ist sichtbar.
-    // Für die Veröffentlichung auf false setzen. Mit ?design=1 in der
-    // Adresse lässt es sich trotzdem jederzeit öffnen.
-    panel: true,
+    // true = Design-Panel (Farben & Schriften testen) ist für alle sichtbar.
+    // false = Besucher sehen es nicht; das Orga-Team öffnet die Seite einmal
+    // mit ?design=1 in der Adresse (bleibt im Browser gespeichert, aus mit ?design=0).
+    panel: false,
     // Standard-Palette (1–7) und Schriftkombination für alle Besucher.
     palette: '1',
     font: 'werkstatt',
