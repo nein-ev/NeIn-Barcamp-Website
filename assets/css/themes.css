@@ -1,0 +1,324 @@
+/* ==========================================================================
+   Farbpaletten
+   --------------------------------------------------------------------------
+   Jede Palette übersetzt die vier Rohfarben (--p1 … --p4) in feste Rollen.
+   Die Seite benutzt ausschließlich die Rollen, nie die Rohfarben direkt
+   (Ausnahme: Deko wie der Farbstreifen oder die Haftnotizen im Titelbild).
+
+   Rollen
+     --bg / --bg-alt / --surface   Seitenhintergrund, Wechselhintergrund, Karten
+     --ink / --ink-muted / --line  Text, Nebentext, Linien
+     --brand / --on-brand          Hauptfarbe (Buttons, Tabellenkopf) + Text darauf
+     --brand-ink                   Hauptfarbe als Textfarbe (Links, Labels)
+     --accent / --on-accent        Zweitfarbe (Markierungen, Haftnotiz) + Text darauf
+     --hero-*                      Kopfbereich
+     --band-*                      Vereins-Band (--band-cta-ink: Text auf --band-accent)
+     --footer-*                    Fußzeile
+     --on-p1 … --on-p4             Kontrastfarbe auf der jeweiligen Rohfarbe
+     --focus / --live              Fokusrahmen, „Live“-Punkt
+
+   Alle Text/Hintergrund-Paare sind auf WCAG AA (≥ 4,5 : 1) geprüft –
+   siehe tools/check-contrast.mjs.
+   ========================================================================== */
+
+/* 1 · Buntstift ------------------------------------------------------------ */
+:root,
+[data-palette="1"] {
+  --p1: #f6511d; --p2: #ffb400; --p3: #00a6ed; --p4: #7fb800;
+  --on-p1: #1d2330; --on-p2: #1d2330; --on-p3: #1d2330; --on-p4: #1d2330;
+
+  --bg: #fffcf7;
+  --bg-alt: #fff4e6;
+  --surface: #ffffff;
+  --ink: #1d2330;
+  --ink-muted: #545c6c;
+  --line: #ecdfcc;
+
+  --brand: #f6511d;
+  --on-brand: #1d2330;
+  --brand-ink: #c43f14;
+  --accent: #ffb400;
+  --on-accent: #1d2330;
+
+  --hero-bg: #fffcf7;
+  --hero-ink: #1d2330;
+  --hero-muted: #545c6c;
+  --hero-accent: #ffb400;
+  --hero-grid: rgba(0, 166, 237, 0.13);
+  --hero-cta-bg: #f6511d;
+  --hero-cta-ink: #1d2330;
+  --hero-focus: #0076ad;
+
+  --art-bg: #ffffff;
+
+  --band-bg: #1d2330;
+  --band-ink: #fffcf7;
+  --band-muted: #c8ccd6;
+  --band-accent: #ffb400;
+  --band-cta-ink: #1d2330;
+
+  --footer-bg: #151a25;
+  --footer-ink: #f3f1ec;
+  --footer-muted: #a8aebb;
+
+  --focus: #0076ad;
+  --live: #f6511d;
+}
+
+/* 2 · Pflaume & Senf ------------------------------------------------------- */
+[data-palette="2"] {
+  --p1: #5c415d; --p2: #694966; --p3: #74526c; --p4: #dbd053;
+  --on-p1: #ffffff; --on-p2: #ffffff; --on-p3: #ffffff; --on-p4: #2a1d2b;
+
+  --bg: #fcfafb;
+  --bg-alt: #f4eef3;
+  --surface: #ffffff;
+  --ink: #2a1d2b;
+  --ink-muted: #615263;
+  --line: #e6dbe4;
+
+  --brand: #5c415d;
+  --on-brand: #ffffff;
+  --brand-ink: #5c415d;
+  --accent: #dbd053;
+  --on-accent: #2a1d2b;
+
+  --hero-bg: #5c415d;
+  --hero-ink: #ffffff;
+  --hero-muted: #eadfe8;
+  --hero-accent: #dbd053;
+  --hero-grid: rgba(255, 255, 255, 0.07);
+  --hero-cta-bg: #dbd053;
+  --hero-cta-ink: #2a1d2b;
+  --hero-focus: #dbd053;
+
+  --art-bg: #fcfafb;
+
+  --band-bg: #694966;
+  --band-ink: #ffffff;
+  --band-muted: #eee4ec;
+  --band-accent: #dbd053;
+  --band-cta-ink: #2a1d2b;
+
+  --footer-bg: #2a1d2b;
+  --footer-ink: #f4eef3;
+  --footer-muted: #bfaebc;
+
+  --focus: #5c415d;
+  --live: #dbd053;
+}
+
+/* 3 · Pop ------------------------------------------------------------------ */
+[data-palette="3"] {
+  --p1: #ff6666; --p2: #ccff66; --p3: #5d2e8c; --p4: #2ec4b6;
+  --on-p1: #1f1430; --on-p2: #1f1430; --on-p3: #ffffff; --on-p4: #1f1430;
+
+  --bg: #fcfbff;
+  --bg-alt: #f3effa;
+  --surface: #ffffff;
+  --ink: #1f1430;
+  --ink-muted: #594d6a;
+  --line: #e4dcef;
+
+  --brand: #5d2e8c;
+  --on-brand: #ffffff;
+  --brand-ink: #5d2e8c;
+  --accent: #2ec4b6;
+  --on-accent: #1f1430;
+
+  --hero-bg: #5d2e8c;
+  --hero-ink: #ffffff;
+  --hero-muted: #e9defa;
+  --hero-accent: #ccff66;
+  --hero-grid: rgba(255, 255, 255, 0.08);
+  --hero-cta-bg: #ccff66;
+  --hero-cta-ink: #1f1430;
+  --hero-focus: #ccff66;
+
+  --art-bg: #fcfbff;
+
+  --band-bg: #2ec4b6;
+  --band-ink: #1f1430;
+  --band-muted: #2a1f3d;
+  --band-accent: #5d2e8c;
+  --band-cta-ink: #ffffff;
+
+  --footer-bg: #1f1430;
+  --footer-ink: #f3effa;
+  --footer-muted: #b6a9c8;
+
+  --focus: #5d2e8c;
+  --live: #ff6666;
+}
+
+/* 4 · Schulgarten ---------------------------------------------------------- */
+[data-palette="4"] {
+  --p1: #51cb20; --p2: #76b041; --p3: #639a88; --p4: #3a5683;
+  --on-p1: #17233a; --on-p2: #17233a; --on-p3: #17233a; --on-p4: #ffffff;
+
+  --bg: #f9fbf7;
+  --bg-alt: #eef5ea;
+  --surface: #ffffff;
+  --ink: #17233a;
+  --ink-muted: #4c5866;
+  --line: #d9e5d3;
+
+  --brand: #3a5683;
+  --on-brand: #ffffff;
+  --brand-ink: #3a5683;
+  --accent: #51cb20;
+  --on-accent: #17233a;
+
+  --hero-bg: #eef5ea;
+  --hero-ink: #17233a;
+  --hero-muted: #4a5664;
+  --hero-accent: #51cb20;
+  --hero-grid: rgba(58, 86, 131, 0.10);
+  --hero-cta-bg: #3a5683;
+  --hero-cta-ink: #ffffff;
+  --hero-focus: #3a5683;
+
+  --art-bg: #ffffff;
+
+  --band-bg: #3a5683;
+  --band-ink: #ffffff;
+  --band-muted: #dbe4f1;
+  --band-accent: #51cb20;
+  --band-cta-ink: #17233a;
+
+  --footer-bg: #17233a;
+  --footer-ink: #eef5ea;
+  --footer-muted: #a9b6c4;
+
+  --focus: #3a5683;
+  --live: #51cb20;
+}
+
+/* 5 · Abendrot ------------------------------------------------------------- */
+[data-palette="5"] {
+  --p1: #e09f7d; --p2: #ef5d60; --p3: #ec4067; --p4: #a01a7d;
+  --on-p1: #2b1426; --on-p2: #2b1426; --on-p3: #2b1426; --on-p4: #ffffff;
+
+  --bg: #fffaf7;
+  --bg-alt: #fcefe7;
+  --surface: #ffffff;
+  --ink: #2b1426;
+  --ink-muted: #69515f;
+  --line: #f1dccf;
+
+  --brand: #a01a7d;
+  --on-brand: #ffffff;
+  --brand-ink: #a01a7d;
+  --accent: #e09f7d;
+  --on-accent: #2b1426;
+
+  --hero-bg: #fcefe7;
+  --hero-ink: #2b1426;
+  --hero-muted: #634b59;
+  --hero-accent: #e09f7d;
+  --hero-grid: rgba(160, 26, 125, 0.08);
+  --hero-cta-bg: #a01a7d;
+  --hero-cta-ink: #ffffff;
+  --hero-focus: #a01a7d;
+
+  --art-bg: #fffaf7;
+
+  --band-bg: #a01a7d;
+  --band-ink: #ffffff;
+  --band-muted: #f7deef;
+  --band-accent: #e09f7d;
+  --band-cta-ink: #2b1426;
+
+  --footer-bg: #2b1426;
+  --footer-ink: #fcefe7;
+  --footer-muted: #c8b0be;
+
+  --focus: #a01a7d;
+  --live: #ec4067;
+}
+
+/* 6 · Anthrazit & Gold ----------------------------------------------------- */
+[data-palette="6"] {
+  --p1: #363636; --p2: #242f40; --p3: #cca43b; --p4: #e5e5e5;
+  --on-p1: #ffffff; --on-p2: #ffffff; --on-p3: #242f40; --on-p4: #242f40;
+
+  --bg: #f6f6f4;
+  --bg-alt: #ebebe8;
+  --surface: #ffffff;
+  --ink: #242f40;
+  --ink-muted: #525a66;
+  --line: #dadad5;
+
+  --brand: #242f40;
+  --on-brand: #ffffff;
+  --brand-ink: #7f6214;
+  --accent: #cca43b;
+  --on-accent: #242f40;
+
+  --hero-bg: #242f40;
+  --hero-ink: #f6f6f4;
+  --hero-muted: #c9ced6;
+  --hero-accent: #cca43b;
+  --hero-grid: rgba(229, 229, 229, 0.06);
+  --hero-cta-bg: #cca43b;
+  --hero-cta-ink: #242f40;
+  --hero-focus: #cca43b;
+
+  --art-bg: #f6f6f4;
+
+  --band-bg: #363636;
+  --band-ink: #f6f6f4;
+  --band-muted: #d0d0d0;
+  --band-accent: #cca43b;
+  --band-cta-ink: #242f40;
+
+  --footer-bg: #1b2331;
+  --footer-ink: #e5e5e5;
+  --footer-muted: #a6adb8;
+
+  --focus: #242f40;
+  --live: #cca43b;
+}
+
+/* 7 · Bordeaux & Kupfer ---------------------------------------------------- */
+[data-palette="7"] {
+  --p1: #321325; --p2: #5f0f40; --p3: #9a031e; --p4: #cb793a;
+  --on-p1: #ffffff; --on-p2: #ffffff; --on-p3: #ffffff; --on-p4: #321325;
+
+  --bg: #fcf8f4;
+  --bg-alt: #f5ece4;
+  --surface: #ffffff;
+  --ink: #321325;
+  --ink-muted: #65515b;
+  --line: #ebdcd0;
+
+  --brand: #9a031e;
+  --on-brand: #ffffff;
+  --brand-ink: #9a031e;
+  --accent: #cb793a;
+  --on-accent: #321325;
+
+  --hero-bg: #321325;
+  --hero-ink: #fcf4ec;
+  --hero-muted: #ddc9d0;
+  --hero-accent: #cb793a;
+  --hero-grid: rgba(252, 244, 236, 0.06);
+  --hero-cta-bg: #cb793a;
+  --hero-cta-ink: #321325;
+  --hero-focus: #cb793a;
+
+  --art-bg: #fcf8f4;
+
+  --band-bg: #5f0f40;
+  --band-ink: #ffffff;
+  --band-muted: #efd6e3;
+  --band-accent: #cb793a;
+  --band-cta-ink: #321325;
+
+  --footer-bg: #26101c;
+  --footer-ink: #f5ece4;
+  --footer-muted: #bea7b2;
+
+  --focus: #9a031e;
+  --live: #cb793a;
+}
