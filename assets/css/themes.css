@@ -12,6 +12,8 @@
      --brand-ink                   Hauptfarbe als Textfarbe (Links, Labels)
      --accent / --on-accent        Zweitfarbe (Markierungen, Haftnotiz) + Text darauf
      --hero-*                      Kopfbereich
+     --mark-1 … --mark-3           Verlauf der Logo-Bildmarke (Sprechblasen)
+     --logo-1 / --logo-2           Verlauf im Schriftzug „camp“ (≥ 3 : 1 auf --hero-bg)
      --band-*                      Vereins-Band (--band-cta-ink: Text auf --band-accent)
      --footer-*                    Fußzeile
      --on-p1 … --on-p4             Kontrastfarbe auf der jeweiligen Rohfarbe
@@ -48,6 +50,12 @@
   --hero-cta-bg: #f6511d;
   --hero-cta-ink: #1d2330;
   --hero-focus: #0076ad;
+
+  --mark-1: #00a6ed;
+  --mark-2: #3fb08a;
+  --mark-3: #7fb800;
+  --logo-1: #0083c0;
+  --logo-2: #5f8c00;
 
   --art-bg: #ffffff;
 
@@ -92,6 +100,12 @@
   --hero-cta-ink: #2a1d2b;
   --hero-focus: #dbd053;
 
+  --mark-1: #e8dce6;
+  --mark-2: #e2d68f;
+  --mark-3: #dbd053;
+  --logo-1: #e8dce6;
+  --logo-2: #dbd053;
+
   --art-bg: #fcfafb;
 
   --band-bg: #694966;
@@ -134,6 +148,12 @@
   --hero-cta-bg: #ccff66;
   --hero-cta-ink: #1f1430;
   --hero-focus: #ccff66;
+
+  --mark-1: #ff6666;
+  --mark-2: #2ec4b6;
+  --mark-3: #ccff66;
+  --logo-1: #2ec4b6;
+  --logo-2: #ccff66;
 
   --art-bg: #fcfbff;
 
@@ -178,6 +198,12 @@
   --hero-cta-ink: #ffffff;
   --hero-focus: #3a5683;
 
+  --mark-1: #3a5683;
+  --mark-2: #639a88;
+  --mark-3: #51cb20;
+  --logo-1: #3a5683;
+  --logo-2: #378c15;
+
   --art-bg: #ffffff;
 
   --band-bg: #3a5683;
@@ -220,6 +246,12 @@
   --hero-cta-bg: #a01a7d;
   --hero-cta-ink: #ffffff;
   --hero-focus: #a01a7d;
+
+  --mark-1: #a01a7d;
+  --mark-2: #ec4067;
+  --mark-3: #e09f7d;
+  --logo-1: #a01a7d;
+  --logo-2: #d23558;
 
   --art-bg: #fffaf7;
 
@@ -264,6 +296,12 @@
   --hero-cta-ink: #242f40;
   --hero-focus: #cca43b;
 
+  --mark-1: #e5e5e5;
+  --mark-2: #d9c48a;
+  --mark-3: #cca43b;
+  --logo-1: #cca43b;
+  --logo-2: #ead08a;
+
   --art-bg: #f6f6f4;
 
   --band-bg: #363636;
@@ -306,6 +344,12 @@
   --hero-cta-bg: #cb793a;
   --hero-cta-ink: #321325;
   --hero-focus: #cb793a;
+
+  --mark-1: #cb793a;
+  --mark-2: #dea072;
+  --mark-3: #f0c9a0;
+  --logo-1: #cb793a;
+  --logo-2: #f0c9a0;
 
   --art-bg: #fcf8f4;
 

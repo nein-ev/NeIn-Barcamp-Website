@@ -214,19 +214,26 @@ code {
   color: inherit;
   text-decoration: none;
 }
-.brand__mark {
-  width: 38px;
-  height: 38px;
-  flex: none;
-  padding: 3px;
-  border-radius: 10px;
-  background: var(--art-bg);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 8%, transparent);
+.brand__mark { width: 50px; height: 37px; flex: none; overflow: visible; }
+
+/* Logo-Farben: Verlauf aus der Palette */
+.lm-s1 { stop-color: var(--mark-1); }
+.lm-s2 { stop-color: var(--mark-2); }
+.lm-s3 { stop-color: var(--mark-3); }
+
+/* Kleines Logo (Kopfzeile): Binär-Sprechblase „01“ + Netzwerk */
+.bm-bubble { fill: var(--mark-1); }
+.bm-bits {
+  font-family: var(--font-mono);
+  font-variation-settings: var(--mono-fvs);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-anchor: middle;
+  fill: var(--hero-bg);
 }
-.brand__mark .m1 { fill: var(--p1); }
-.brand__mark .m2 { fill: var(--p2); }
-.brand__mark .m3 { fill: var(--p3); }
-.brand__mark .m4 { fill: var(--p4); }
+.bm-edges { fill: none; stroke: url(#bm-grad); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.bm-nodes circle { fill: url(#bm-grad); }
 .brand__text {
   font-family: var(--font-head);
   font-variation-settings: var(--head-fvs);
@@ -364,7 +371,7 @@ code {
   overflow: hidden;
   background: var(--hero-bg);
   color: var(--hero-ink);
-  padding-block: clamp(40px, 6vw, 88px) clamp(64px, 8vw, 120px);
+  padding-block: clamp(32px, 4.5vw, 64px) clamp(64px, 8vw, 112px);
 }
 /* Karopapier */
 .hero::before {
@@ -394,7 +401,7 @@ code {
   flex-wrap: wrap;
   align-items: center;
   gap: 10px 14px;
-  margin: 0 0 22px;
+  margin: 0 0 18px;
 }
 .chip {
   display: inline-flex;
@@ -415,25 +422,59 @@ code {
 }
 .countdown strong { color: var(--hero-ink); }
 
-.hero__text { container-type: inline-size; }
-.hero__title {
-  margin: 0 0 24px;
-  font-size: clamp(2.5rem, 1.2rem + 4.6vw, 5.2rem);
-  font-size: min(5.2rem, 13.2cqi);
+/* Logo im Kopfbereich: Bildmarke, Schriftzug „Barcamp“, Unterzeile.
+   Alle drei Teile skalieren mit der Breite des Logo-Blocks (cqi), damit sie
+   – wie im Original – gleich breit bleiben. */
+.hero-logo {
+  container-type: inline-size;
+  width: min(100%, 410px);
+  margin: 0 0 28px;
 }
-.hero__title-main { display: block; white-space: nowrap; }
-.hero__title-year {
-  display: block;
-  margin-top: 0.3em;
-  font-family: var(--font-mono);
-  font-variation-settings: var(--mono-fvs);
-  font-size: 0.34em;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+.hero-logo__mark { display: block; width: 100%; height: auto; overflow: visible; }
+.lm-digits text {
+  font-family: var(--font-head);
+  font-variation-settings: var(--head-fvs);
+  font-weight: 800;
+  text-anchor: middle;
+  fill: url(#lm-grad-l);
+}
+.lm-edges path { fill: none; stroke: url(#lm-grad-r); stroke-width: 5; stroke-linecap: round; }
+.lm-nodes circle { fill: url(#lm-grad-r); }
+
+.hero-logo__word {
+  margin: 0.14em 0 0;
+  font-size: calc(23.5cqi * var(--wm-word, 1));
+  font-size: min(calc(23.5cqi * var(--wm-word, 1)), 6.8rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
+.hero-logo__bar { color: var(--hero-ink); }
+.hero-logo__camp {
+  display: inline-block;
+  padding: 0 0.04em 0.1em 0;
+  margin-bottom: -0.1em;
+  background: linear-gradient(90deg, var(--logo-1), var(--logo-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-logo__tag {
+  margin: 0.55em 0 0;
+  font-family: var(--font-head);
+  font-variation-settings: var(--head-fvs);
+  font-size: calc(5.3cqi * var(--wm-tag, 1));
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
   color: var(--hero-muted);
 }
-.hero__title-year::before { content: "/* "; opacity: 0.6; }
-.hero__title-year::after { content: " */"; opacity: 0.6; }
+.hero-logo__tag span { color: var(--logo-2); }
+
+@media (forced-colors: active) {
+  .hero-logo__camp { color: CanvasText; background: none; }
+}
 
 /* Das große I in „NeIn“ – in Groteskschriften sieht es sonst aus wie ein kleines l
    („Neln“). Die Mono-Variante hat Serifen und erinnert an einen Text-Cursor. */
@@ -443,25 +484,6 @@ code {
   font-weight: 700;
   letter-spacing: -0.04em;
   margin-inline: -0.02em 0.01em;
-}
-
-/* Textmarker */
-.marker {
-  position: relative;
-  z-index: 0;
-  display: inline-block;
-  margin-left: 0.07em;
-  padding-inline: 0.06em;
-  color: var(--ink);
-}
-.marker::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0.14em -0.1em 0.02em 0.01em;
-  border-radius: 0.1em 0.18em 0.12em 0.2em;
-  background: var(--hero-accent);
-  transform: rotate(-1.6deg);
 }
 
 .hero__lead {
@@ -582,7 +604,7 @@ code {
 [data-phase="live"] .hero__grid { grid-template-columns: 1fr; }
 [data-phase="live"] .hero__media,
 [data-phase="live"] .hero__lead { display: none; }
-[data-phase="live"] .hero__title { font-size: min(3.8rem, 11cqi); margin-bottom: 18px; }
+[data-phase="live"] .hero-logo { width: min(100%, 300px); margin-bottom: 22px; }
 [data-phase="live"] .hero__meta { margin-bottom: 24px; }
 
 /* ---------------------------------------------------------------- Abschnitte */
@@ -935,27 +957,6 @@ code {
 }
 .form [aria-invalid="true"] { border-color: var(--error) !important; }
 
-.choice__options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-@media (max-width: 480px) { .choice__options { grid-template-columns: 1fr; } }
-.choice__option {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
-  border: 1.5px solid color-mix(in srgb, var(--ink) 22%, var(--surface));
-  border-radius: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: border-color 0.15s ease, background-color 0.15s ease;
-}
-.choice__option:hover { border-color: color-mix(in srgb, var(--ink) 45%, var(--surface)); }
-.choice__option:has(input:checked) {
-  border-color: var(--brand);
-  background: color-mix(in srgb, var(--brand) 9%, var(--surface));
-}
-.choice__option:has(input:focus-visible) { outline: 3px solid var(--focus); outline-offset: 2px; }
-.choice__option input { width: 18px; height: 18px; margin: 0; accent-color: var(--brand); }
-.choice[aria-invalid="true"] .choice__option { border-color: var(--error); }
 
 .field--check { grid-template-columns: 22px minmax(0, 1fr); align-items: start; column-gap: 12px; }
 .field--check input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--brand); }

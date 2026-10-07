@@ -1,14 +1,15 @@
 <!doctype html>
-<html lang="de" data-palette="1" data-font="werkstatt">
+<html lang="de" data-palette="4" data-font="werkstatt">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NeIn-Barcamp 2026 · Fortbildung für Lehrkräfte · 5. November 2026</title>
-  <meta name="description" content="Das NeIn-Barcamp am 5. November 2026: eine Fortbildung im Barcamp-Format rund um Informatik in der Schule – Rahmeninfos, Ablauf, Essensbuchung, Sessionplan und Edupads.">
+  <title>NeIn-Barcamp 2026 · Informatik, Digitalisierung, KI · 5. November 2026, Leipzig</title>
+  <meta name="description" content="Das NeIn-Barcamp am 5. November 2026: eine Fortbildung im Barcamp-Format rund um Informatik, Digitalisierung und KI in der Schule, an der Johanna-Moosdorf-Schule in Leipzig – Rahmeninfos, Ablauf, Essensbuchung, Sessionplan und Edupads.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="NeIn-Barcamp 2026">
-  <meta property="og:description" content="Fortbildung im Barcamp-Format rund um Informatik in der Schule · Donnerstag, 5. November 2026">
+  <meta property="og:description" content="Fortbildung im Barcamp-Format: Informatik · Digitalisierung · KI · Donnerstag, 5. November 2026, Johanna-Moosdorf-Schule Leipzig">
   <meta property="og:locale" content="de_DE">
+  <meta property="og:image" content="https://hanstydecks.github.io/NeIn-Barcamp-Dashboard/assets/img/logo-barcamp.png">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
   <link rel="stylesheet" href="assets/css/fonts.css">
@@ -54,11 +55,17 @@
   <header class="site-header" id="header">
     <div class="container site-header__inner">
       <a class="brand" href="#top" aria-label="NeIn-Barcamp 2026 – zum Seitenanfang">
-        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
-          <rect class="m1" x="2" y="2.5" width="13" height="13" rx="3" transform="rotate(-4 8.5 9)"/>
-          <rect class="m2" x="17" y="2" width="13" height="13" rx="3" transform="rotate(3 23.5 8.5)"/>
-          <rect class="m3" x="2.5" y="17" width="13" height="13" rx="3" transform="rotate(2 9 23.5)"/>
-          <rect class="m4" x="17" y="17.5" width="13" height="13" rx="3" transform="rotate(-3 23.5 24)"/>
+        <svg class="brand__mark" viewBox="0 0 68 50" aria-hidden="true">
+          <defs>
+            <linearGradient id="bm-grad" gradientUnits="userSpaceOnUse" x1="36" y1="0" x2="66" y2="0">
+              <stop offset="0" class="lm-s1"/><stop offset=".5" class="lm-s2"/><stop offset="1" class="lm-s3"/>
+            </linearGradient>
+          </defs>
+          <circle class="bm-bubble" cx="19" cy="19" r="16"/>
+          <path class="bm-bubble" d="M8.5 29.5 3 42.5l13.8-8.4z"/>
+          <text class="bm-bits" x="19" y="24">01</text>
+          <path class="bm-edges" d="M38 8 51 4.5 63 14 47 21 38 8M51 4.5 47 21M63 14 64 29 47 21 41 33 38 8M41 33 55 39 64 29M47 21 55 39 64 47"/>
+          <g class="bm-nodes"><circle cx="38" cy="8" r="3"/><circle cx="51" cy="4.5" r="3"/><circle cx="63" cy="14" r="3"/><circle cx="47" cy="21" r="4.3"/><circle cx="64" cy="29" r="3"/><circle cx="41" cy="33" r="3"/><circle cx="55" cy="39" r="3.6"/><circle cx="64" cy="47" r="2"/></g>
         </svg>
         <span class="brand__text"><strong>Ne<span class="ibeam">I</span>n</strong>-Barcamp <span class="brand__year">2026</span></span>
       </a>
@@ -93,13 +100,200 @@
             <span class="countdown" id="countdown" hidden></span>
           </p>
 
-          <h1 class="hero__title" id="hero-title">
-            <span class="hero__title-main">Ne<span class="ibeam">I</span>n-<span class="marker">Barcamp</span></span>
-            <span class="hero__title-year">2026</span>
-          </h1>
+          <div class="hero-logo">
+            <!-- Bildmarke: Sprechblase aus Binärziffern + Sprechblase aus einem Netzwerk.
+                 Farben kommen aus der Palette (--mark-1 … --mark-3), Ziffern in der Überschriftenschrift. -->
+            <svg class="hero-logo__mark" viewBox="205 55 1130 650" role="img" aria-label="Logo: eine Sprechblase aus Nullen und Einsen neben einer Sprechblase aus einem Netzwerk">
+              <defs>
+                <linearGradient id="lm-grad-l" gradientUnits="userSpaceOnUse" x1="230" y1="0" x2="770" y2="0">
+                  <stop offset="0" class="lm-s1"/><stop offset=".55" class="lm-s2"/><stop offset="1" class="lm-s3"/>
+                </linearGradient>
+                <linearGradient id="lm-grad-r" gradientUnits="userSpaceOnUse" x1="780" y1="0" x2="1320" y2="0">
+                  <stop offset="0" class="lm-s1"/><stop offset=".55" class="lm-s2"/><stop offset="1" class="lm-s3"/>
+                </linearGradient>
+              </defs>
+              <g class="lm-digits">
+              <text x="338" y="617" font-size="30">0</text>
+              <text x="306" y="641" font-size="26">0</text>
+              <text x="284" y="664" font-size="21">0</text>
+              <text x="266" y="682" font-size="16">1</text>
+              <text x="333" y="652" font-size="17">0</text>
+              <text x="334" y="452" font-size="103">0</text>
+              <text x="335" y="310" font-size="103">1</text>
+              <text x="389" y="216" font-size="103">1</text>
+              <text x="386" y="536" font-size="102">0</text>
+              <text x="447" y="198" font-size="96">1</text>
+              <text x="330" y="524" font-size="95">1</text>
+              <text x="325" y="226" font-size="92">0</text>
+              <text x="441" y="567" font-size="91">1</text>
+              <text x="390" y="459" font-size="89">1</text>
+              <text x="283" y="332" font-size="88">1</text>
+              <text x="395" y="286" font-size="87">0</text>
+              <text x="273" y="406" font-size="84">1</text>
+              <text x="385" y="374" font-size="83">1</text>
+              <text x="340" y="373" font-size="82">1</text>
+              <text x="496" y="176" font-size="78">0</text>
+              <text x="275" y="480" font-size="78">0</text>
+              <text x="276" y="258" font-size="77">1</text>
+              <text x="394" y="596" font-size="77">0</text>
+              <text x="438" y="497" font-size="74">1</text>
+              <text x="483" y="562" font-size="73">1</text>
+              <text x="542" y="166" font-size="72">1</text>
+              <text x="442" y="258" font-size="71">1</text>
+              <text x="381" y="139" font-size="70">0</text>
+              <text x="334" y="579" font-size="69">1</text>
+              <text x="599" y="173" font-size="68">1</text>
+              <text x="331" y="154" font-size="67">0</text>
+              <text x="635" y="183" font-size="66">1</text>
+              <text x="440" y="123" font-size="65">1</text>
+              <text x="518" y="577" font-size="63">1</text>
+              <text x="285" y="535" font-size="63">0</text>
+              <text x="245" y="322" font-size="62">1</text>
+              <text x="667" y="206" font-size="61">1</text>
+              <text x="564" y="580" font-size="60">0</text>
+              <text x="486" y="223" font-size="59">1</text>
+              <text x="618" y="549" font-size="58">1</text>
+              <text x="659" y="524" font-size="58">0</text>
+              <text x="688" y="250" font-size="57">1</text>
+              <text x="476" y="117" font-size="57">1</text>
+              <text x="427" y="330" font-size="56">0</text>
+              <text x="237" y="383" font-size="56">1</text>
+              <text x="422" y="390" font-size="56">1</text>
+              <text x="436" y="435" font-size="56">0</text>
+              <text x="683" y="478" font-size="54">0</text>
+              <text x="637" y="225" font-size="54">1</text>
+              <text x="446" y="609" font-size="53">1</text>
+              <text x="281" y="187" font-size="53">1</text>
+              <text x="481" y="604" font-size="52">0</text>
+              <text x="694" y="299" font-size="51">0</text>
+              <text x="474" y="498" font-size="50">1</text>
+              <text x="510" y="113" font-size="49">1</text>
+              <text x="243" y="269" font-size="49">1</text>
+              <text x="606" y="587" font-size="47">0</text>
+              <text x="692" y="432" font-size="47">1</text>
+              <text x="541" y="202" font-size="46">1</text>
+              <text x="692" y="514" font-size="46">1</text>
+              <text x="700" y="339" font-size="46">0</text>
+              <text x="236" y="422" font-size="45">0</text>
+              <text x="520" y="527" font-size="45">1</text>
+              <text x="662" y="258" font-size="45">1</text>
+              <text x="584" y="533" font-size="45">1</text>
+              <text x="598" y="120" font-size="44">0</text>
+              <text x="709" y="377" font-size="44">1</text>
+              <text x="603" y="213" font-size="43">1</text>
+              <text x="543" y="112" font-size="43">0</text>
+              <text x="559" y="533" font-size="43">1</text>
+              <text x="571" y="183" font-size="43">1</text>
+              <text x="666" y="158" font-size="42">1</text>
+              <text x="573" y="112" font-size="42">1</text>
+              <text x="646" y="480" font-size="42">0</text>
+              <text x="716" y="256" font-size="41">0</text>
+              <text x="718" y="437" font-size="41">0</text>
+              <text x="647" y="572" font-size="41">0</text>
+              <text x="711" y="470" font-size="40">1</text>
+              <text x="696" y="187" font-size="40">0</text>
+              <text x="512" y="208" font-size="39">1</text>
+              <text x="629" y="132" font-size="38">1</text>
+              <text x="686" y="376" font-size="38">1</text>
+              <text x="511" y="608" font-size="37">1</text>
+              <text x="723" y="295" font-size="37">1</text>
+              <text x="248" y="230" font-size="35">1</text>
+              <text x="662" y="286" font-size="35">0</text>
+              <text x="534" y="608" font-size="35">1</text>
+              <text x="614" y="500" font-size="35">0</text>
+              <text x="666" y="434" font-size="35">0</text>
+              <text x="497" y="501" font-size="35">1</text>
+              <text x="466" y="458" font-size="35">1</text>
+              <text x="727" y="330" font-size="35">1</text>
+              <text x="469" y="261" font-size="34">1</text>
+              <text x="717" y="224" font-size="34">0</text>
+              <text x="639" y="252" font-size="34">0</text>
+              <text x="572" y="211" font-size="34">0</text>
+              <text x="724" y="406" font-size="34">0</text>
+              <text x="451" y="286" font-size="33">1</text>
+              <text x="679" y="549" font-size="32">0</text>
+              <text x="674" y="329" font-size="31">0</text>
+              <text x="728" y="372" font-size="29">1</text>
+              <text x="714" y="494" font-size="28">0</text>
+              <text x="557" y="602" font-size="27">0</text>
+              <text x="576" y="602" font-size="25">1</text>
+              <text x="666" y="406" font-size="25">0</text>
+              <text x="644" y="446" font-size="25">1</text>
+              <text x="670" y="376" font-size="24">1</text>
+              <text x="541" y="511" font-size="24">1</text>
+              <text x="728" y="456" font-size="23">1</text>
+              <text x="617" y="236" font-size="22">1</text>
+              <text x="737" y="349" font-size="22">0</text>
+              <text x="645" y="275" font-size="20">1</text>
+              <text x="673" y="345" font-size="19">1</text>
+              <text x="668" y="305" font-size="22">1</text>
+              <text x="625" y="472" font-size="22">1</text>
+              <text x="594" y="497" font-size="22">0</text>
+              <text x="645" y="130" font-size="22">1</text>
+              <text x="693" y="205" font-size="22">0</text>
+              <text x="693" y="396" font-size="22">0</text>
+              <text x="259" y="510" font-size="22">1</text>
+              <text x="627" y="575" font-size="22">1</text>
+              <text x="435" y="288" font-size="22">0</text>
+              <text x="242" y="458" font-size="22">1</text>
+              <text x="235" y="341" font-size="22">1</text>
+              <text x="261" y="198" font-size="22">1</text>
+              <text x="413" y="100" font-size="22">0</text>
+              <text x="302" y="554" font-size="22">0</text>
+              <text x="299" y="145" font-size="22">0</text>
+              <text x="570" y="144" font-size="22">0</text>
+              <text x="362" y="578" font-size="22">0</text>
+              <text x="410" y="120" font-size="22">1</text>
+              <text x="634" y="504" font-size="22">1</text>
+              <text x="425" y="595" font-size="22">1</text>
+              <text x="389" y="307" font-size="22">1</text>
+              <text x="368" y="306" font-size="22">1</text>
+              <text x="249" y="341" font-size="22">0</text>
+              <text x="304" y="368" font-size="22">1</text>
+              <text x="302" y="350" font-size="22">1</text>
+              <text x="301" y="262" font-size="22">1</text>
+              <text x="360" y="560" font-size="22">0</text>
+              <text x="381" y="393" font-size="22">1</text>
+              </g>
+              <g class="lm-edges">
+              <path d="M795 190L868 148M795 190L850 255M868 148L990 118M868 148L955 200M868 148L850 255M990 118L1138 178M990 118L955 200M990 118L1050 245M1138 178L1050 245M1138 178L1235 245M1138 178L1172 298M955 200L850 255M955 200L1050 245M955 200L948 330M850 255L948 330M850 255L873 365M1050 245L1172 298M1050 245L948 330M1050 245L1088 383M1235 245L1172 298M1235 245L1272 300M1172 298L1272 300M1172 298L1088 383M1172 298L1240 375M1272 300L1240 375M1272 300L1305 388M948 330L1088 383M948 330L873 365M948 330L948 445M1088 383L1240 375M1088 383L948 445M1088 383L1172 475M1088 383L1043 512M873 365L948 445M873 365L843 465M1240 375L1305 388M1240 375L1172 475M1240 375L1270 480M1305 388L1270 480M948 445L843 465M948 445L1043 512M948 445L893 565M843 465L785 535M843 465L893 565M1172 475L1270 480M1172 475L1043 512M1172 475L1130 565M1172 475L1203 553M1270 480L1203 553M1270 480L1208 632M1043 512L893 565M1043 512L1130 565M1043 512L993 600M785 535L893 565M893 565L993 600M1130 565L1203 553M1130 565L993 600M1130 565L1208 632M1203 553L1208 632M1208 632L1245 678"/>
+              </g>
+              <g class="lm-nodes">
+              <circle cx="795" cy="190" r="19"/>
+              <circle cx="868" cy="148" r="19"/>
+              <circle cx="990" cy="118" r="21"/>
+              <circle cx="1138" cy="178" r="25"/>
+              <circle cx="955" cy="200" r="20"/>
+              <circle cx="850" cy="255" r="21"/>
+              <circle cx="1050" cy="245" r="27"/>
+              <circle cx="1235" cy="245" r="14"/>
+              <circle cx="1172" cy="298" r="19"/>
+              <circle cx="1272" cy="300" r="11"/>
+              <circle cx="948" cy="330" r="23"/>
+              <circle cx="1088" cy="383" r="34"/>
+              <circle cx="873" cy="365" r="19"/>
+              <circle cx="1240" cy="375" r="20"/>
+              <circle cx="1305" cy="388" r="15"/>
+              <circle cx="948" cy="445" r="21"/>
+              <circle cx="843" cy="465" r="17"/>
+              <circle cx="1172" cy="475" r="15"/>
+              <circle cx="1270" cy="480" r="19"/>
+              <circle cx="1043" cy="512" r="23"/>
+              <circle cx="785" cy="535" r="19"/>
+              <circle cx="893" cy="565" r="26"/>
+              <circle cx="1130" cy="565" r="19"/>
+              <circle cx="1203" cy="553" r="12"/>
+              <circle cx="993" cy="600" r="15"/>
+              <circle cx="1208" cy="632" r="15"/>
+              <circle cx="1245" cy="678" r="9"/>
+              </g>
+            </svg>
+            <h1 class="hero-logo__word" id="hero-title"><span class="visually-hidden">NeIn-</span><span class="hero-logo__bar">Bar</span><span class="hero-logo__camp">camp</span><span class="visually-hidden"> 2026</span></h1>
+            <p class="hero-logo__tag">Informatik <span aria-hidden="true">•</span> Digitalisierung <span aria-hidden="true">•</span> KI</p>
+          </div>
 
           <p class="hero__lead">
-            Ein Tag rund um Informatik in der Schule – mit den Themen, die ihr mitbringt.
+            Ein Tag rund um Informatik, Digitalisierung und KI in der Schule – mit den Themen, die ihr mitbringt.
             Es gibt kein festes Programm: Wir sammeln morgens gemeinsam die Sessions,
             teilen Erfahrungen aus dem Unterricht und nehmen Ideen mit, die am nächsten Tag funktionieren.
           </p>
@@ -107,7 +301,7 @@
           <ul class="hero__meta">
             <li><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span><strong>Donnerstag, 5. November 2026</strong></span></li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span class="ph">9:00 – 15:30 Uhr</span></li>
-            <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span class="ph">Musterschule, Musterstadt</span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span>Johanna-Moosdorf-Schule, Leipzig</span></li>
           </ul>
 
           <div class="hero__actions">
@@ -258,8 +452,8 @@
           <article class="fact">
             <span class="fact__icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
             <h3 class="fact__label">Wo</h3>
-            <p class="fact__value ph">Musterschule</p>
-            <p class="fact__text"><span class="ph">Musterstraße 1, 12345 Musterstadt</span></p>
+            <p class="fact__value">Johanna-Moosdorf-Schule</p>
+            <p class="fact__text">Gymnasium der Stadt Leipzig<br>Philipp-Rosenthal-Straße 61–63, 04103 Leipzig</p>
           </article>
           <article class="fact">
             <span class="fact__icon"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg></span>
@@ -381,7 +575,6 @@
           <dl class="info-list">
             <div><dt>Anmeldeschluss</dt><dd class="ph" data-deadline-text="long">Donnerstag, 29. Oktober 2026</dd></div>
             <div><dt>Kostenbeitrag</dt><dd class="ph">8 € pro Person, bar vor Ort</dd></div>
-            <div><dt>Auswahl</dt><dd class="ph">Vegetarisch, vegan oder mit Fleisch</dd></div>
             <div><dt>Allergien</dt><dd>Gebt Unverträglichkeiten bitte im Formular an – wir kümmern uns darum.</dd></div>
           </dl>
           <p class="muted">Kaffee, Wasser und Snacks über den Tag gibt es ohne Buchung.</p>
@@ -418,16 +611,6 @@
               <label for="f-school">Schule <span class="optional">(optional)</span></label>
               <input id="f-school" name="Schule" type="text" autocomplete="organization">
             </div>
-
-            <fieldset class="field choice">
-              <legend>Mittagessen <span class="req" aria-hidden="true">*</span></legend>
-              <div class="choice__options">
-                <label class="choice__option"><input type="radio" name="Essen" value="Vegetarisch" required><span>Vegetarisch</span></label>
-                <label class="choice__option"><input type="radio" name="Essen" value="Vegan"><span>Vegan</span></label>
-                <label class="choice__option"><input type="radio" name="Essen" value="Mit Fleisch"><span>Mit Fleisch</span></label>
-              </div>
-              <p class="field__error" id="f-meal-error"></p>
-            </fieldset>
 
             <div class="field">
               <label for="f-allergies">Allergien &amp; Unverträglichkeiten <span class="optional">(optional)</span></label>
@@ -488,7 +671,7 @@
     <div class="container site-footer__inner">
       <div>
         <p class="brand__text brand__text--footer"><strong>Ne<span class="ibeam">I</span>n</strong>-Barcamp 2026</p>
-        <p class="site-footer__meta">Donnerstag, 5. November 2026 · <span class="ph">Musterschule, Musterstadt</span></p>
+        <p class="site-footer__meta">Donnerstag, 5. November 2026 · Johanna-Moosdorf-Schule, Leipzig</p>
       </div>
       <nav class="site-footer__nav" aria-label="Rechtliches und Verein">
         <a href="impressum.html">Impressum</a>

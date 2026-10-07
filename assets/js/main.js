@@ -161,13 +161,16 @@
 
   function updateBrandAssets() {
     var cs = getComputedStyle(root);
-    var c = ['--p1', '--p2', '--p3', '--p4'].map(function (v) { return cs.getPropertyValue(v).trim(); });
+    var c = ['--mark-1', '--mark-2', '--mark-3', '--hero-bg'].map(function (v) { return cs.getPropertyValue(v).trim(); });
     if (!c[0]) return;
-    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">' +
-      '<rect x="2" y="2.5" width="13" height="13" rx="3" fill="' + c[0] + '" transform="rotate(-4 8.5 9)"/>' +
-      '<rect x="17" y="2" width="13" height="13" rx="3" fill="' + c[1] + '" transform="rotate(3 23.5 8.5)"/>' +
-      '<rect x="2.5" y="17" width="13" height="13" rx="3" fill="' + c[2] + '" transform="rotate(2 9 23.5)"/>' +
-      '<rect x="17" y="17.5" width="13" height="13" rx="3" fill="' + c[3] + '" transform="rotate(-3 23.5 24)"/></svg>';
+    // Gleiches Motiv wie das kleine Logo in der Kopfzeile, in den Farben der aktiven Palette
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 50">' +
+      '<defs><linearGradient id="g" gradientUnits="userSpaceOnUse" x1="36" y1="0" x2="66" y2="0">' +
+      '<stop offset="0" stop-color="' + c[0] + '"/><stop offset=".5" stop-color="' + c[1] + '"/><stop offset="1" stop-color="' + c[2] + '"/></linearGradient></defs>' +
+      '<circle cx="19" cy="19" r="16" fill="' + c[0] + '"/><path d="M8.5 29.5 3 42.5l13.8-8.4z" fill="' + c[0] + '"/>' +
+      '<text x="19" y="24" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" font-weight="800" text-anchor="middle" fill="' + c[3] + '">01</text>' +
+      '<path d="M38 8 51 4.5 63 14 47 21 38 8M51 4.5 47 21M63 14 64 29 47 21 41 33 38 8M41 33 55 39 64 29M47 21 55 39 64 47" fill="none" stroke="url(#g)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '<g fill="url(#g)"><circle cx="38" cy="8" r="3.2"/><circle cx="51" cy="4.5" r="3.2"/><circle cx="63" cy="14" r="3.2"/><circle cx="47" cy="21" r="4.5"/><circle cx="64" cy="29" r="3.2"/><circle cx="41" cy="33" r="3.2"/><circle cx="55" cy="39" r="3.8"/><circle cx="64" cy="47" r="2.2"/></g></svg>';
     var icon = $('link[rel="icon"]');
     if (icon) icon.href = 'data:image/svg+xml,' + encodeURIComponent(svg);
 
@@ -209,15 +212,12 @@
     var name = f.elements.Name;
     var email = f.elements.email;
     var privacy = f.elements.Datenschutz;
-    var choice = f.querySelector('input[name="Essen"]');
-    var chosen = f.querySelector('input[name="Essen"]:checked');
 
     var results = [
       [name, fieldError(name, $('#f-name-error'), name.value.trim() ? '' : 'Bitte gib deinen Namen an.')],
       [email, fieldError(email, $('#f-email-error'),
         !email.value.trim() ? 'Bitte gib deine E-Mail-Adresse an.' :
         !email.checkValidity() ? 'Diese E-Mail-Adresse sieht nicht ganz richtig aus.' : '')],
-      [choice, fieldError(choice, $('#f-meal-error'), chosen ? '' : 'Bitte wähle ein Essen aus.')],
       [privacy, fieldError(privacy, $('#f-privacy-error'), privacy.checked ? '' : 'Bitte stimme der Verarbeitung deiner Angaben zu.')],
     ];
     var firstInvalid = results.filter(function (r) { return !r[1]; })[0];

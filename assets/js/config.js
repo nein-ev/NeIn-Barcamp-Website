@@ -67,7 +67,8 @@ window.BARCAMP_CONFIG = {
     // Sobald Farben und Schrift feststehen: auf false setzen.
     panel: true,
     // Standard-Palette (1–7) und Schriftkombination für alle Besucher.
-    palette: '1',
+    // Entschieden: 4 „Schulgarten“ + „Werkstatt“.
+    palette: '4',
     font: 'werkstatt',
   },
 };

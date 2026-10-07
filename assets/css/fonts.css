@@ -165,6 +165,7 @@
    --head-weight, --head-tracking, --head-lh  Feinschliff je Überschriftenschrift
    --*-fvs                                    font-variation-settings (Achsen)
    --body-scale                               optischer Größenausgleich
+   --wm-word / --wm-tag                       Breitenausgleich für Logo-Schriftzug und Unterzeile
    ========================================================================== */
 
 :root {
@@ -186,6 +187,8 @@
   --body-fvs: normal;
   --mono-fvs: normal;
   --body-scale: 1.02;
+  --wm-word: 0.96;
+  --wm-tag: 1.22;
 }
 
 /* 2 · Informatik – technisch, klar, mit Retro-Mono */
@@ -200,6 +203,8 @@
   --body-fvs: normal;
   --mono-fvs: normal;
   --body-scale: 0.98;
+  --wm-word: 1.01;
+  --wm-tag: 1.2;
 }
 
 /* 3 · Lesefreundlich – Lexend wurde für flüssiges Lesen entwickelt */
@@ -214,6 +219,8 @@
   --body-fvs: normal;
   --mono-fvs: normal;
   --body-scale: 0.95;
+  --wm-word: 0.91;
+  --wm-tag: 1.07;
 }
 
 /* 4 · Barrierearm – Atkinson Hyperlegible (Braille Institute) */
@@ -228,6 +235,8 @@
   --body-fvs: normal;
   --mono-fvs: normal;
   --body-scale: 1.03;
+  --wm-word: 1.03;
+  --wm-tag: 1.19;
 }
 
 /* 5 · Editorial – warme Serif-Überschriften, ruhiger Fließtext */
@@ -242,6 +251,8 @@
   --body-fvs: normal;
   --mono-fvs: normal;
   --body-scale: 1.06;
+  --wm-word: 1.09;
+  --wm-tag: 1.14;
 }
 
 /* 6 · Sachlich – IBM Plex, nüchtern und institutionell */
@@ -256,6 +267,8 @@
   --body-fvs: normal;
   --mono-fvs: normal;
   --body-scale: 1;
+  --wm-word: 1.03;
+  --wm-tag: 1.21;
 }
 
 /* 7 · Code-Charme – Recursive: verspielt in Überschriften, ruhig im Text, Mono für Akzente */
@@ -270,4 +283,6 @@
   --body-fvs: "CASL" 0, "MONO" 0;
   --mono-fvs: "CASL" 0, "MONO" 1;
   --body-scale: 0.98;
+  --wm-word: 1.04;
+  --wm-tag: 1.07;
 }

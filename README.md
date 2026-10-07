@@ -55,19 +55,13 @@ Alle Schriften liegen in `assets/fonts/` und werden **nicht** von Google geladen
 Das große „I“ in **NeIn** steht immer in der Mono-Schrift – sonst sieht es in Groteskschriften
 aus wie ein kleines l („Neln“).
 
-### Entscheidung getroffen? So wird sie fest eingestellt
+### Festgelegt: Palette 4 „Schulgarten“ + Schrift „Werkstatt“
 
-In `assets/js/config.js`:
+Das ist der Standard für alle Besucher (`assets/js/config.js`). Wer vorher im Panel etwas anderes
+ausprobiert hatte, bekommt beim nächsten Besuch automatisch den neuen Standard.
 
-```js
-design: {
-  panel: false,        // Panel für Besucher ausblenden
-  palette: '3',        // gewählte Palette
-  font: 'editorial',   // gewählte Schrift (werkstatt, informatik, lesefreundlich, barrierearm, editorial, sachlich, code)
-},
-```
-
-Das Panel bleibt für euch trotzdem erreichbar: `…/index.html?design=1` (aus mit `?design=0`).
+Wenn das Panel verschwinden soll, in `config.js` `panel: false` setzen. Es bleibt für euch dann
+über `…/index.html?design=1` erreichbar (aus mit `?design=0`).
 
 Wer später eine Palette ändert oder ergänzt, prüft die Kontraste mit `node tools/check-contrast.mjs`.
 
@@ -77,13 +71,26 @@ Wer später eine Palette ändert oder ergänzt, prüft die Kontraste mit `node t
 
 Mit **„Platzhalter markieren“** im Design-Panel seht ihr alle Stellen. Im Einzelnen:
 
-- **`index.html`**: Uhrzeiten, Ort/Adresse, Teilnahmekosten, Kostenbeitrag und Auswahl beim Essen, Zeitplan im Abschnitt „Ablauf“
+- **`index.html`**: Uhrzeiten, Teilnahmekosten, Kostenbeitrag fürs Essen, Zeitplan im Abschnitt „Ablauf“
+  (Ort steht fest: Johanna-Moosdorf-Schule, Philipp-Rosenthal-Straße 61–63, 04103 Leipzig)
 - **`impressum.html`**: Vereinsname, Anschrift, Vorstand, Kontakt, Vereinsregister
 - **`datenschutz.html`**: Entwurf, der beschreibt, was die Seite technisch tut – bitte vom Verein prüfen lassen
 - **Titelfoto**: Bild als `assets/img/titelbild.jpg` ablegen (Querformat, ca. 1600 × 1200 px).
   Es ersetzt automatisch die Illustration im Kopfbereich.
 
 Die Seite spricht Besucher mit „ihr“ bzw. im Formular mit „du“ an.
+
+---
+
+## Logo
+
+Das Barcamp-Logo ist in der Seite nachgebaut, nicht als Bild eingefügt: Die Bildmarke (Sprechblase aus
+Nullen und Einsen + Sprechblase aus einem Netzwerk) ist ein SVG direkt in `index.html`, „Barcamp“ und die
+Unterzeile sind echter Text. Dadurch übernimmt das Logo automatisch die Farben der Palette
+(`--mark-1 … --mark-3`, `--logo-1/--logo-2` in `themes.css`) und die Überschriftenschrift.
+
+- `assets/img/logo-barcamp.png` – das Logo in den Website-Farben, transparenter Hintergrund (z. B. für Folien, neueinformatik.de)
+- `assets/img/favicon.svg` – kleine Variante („01“-Sprechblase + Netzwerk), auch oben links in der Kopfzeile
 
 ---
 

@@ -20,6 +20,14 @@
   var font = cfg.font || 'werkstatt';
 
   if (enabled) {
+    // Wurde der Standard in der config.js geändert, gilt er einmalig auch für alle,
+    // die vorher im Design-Panel etwas anderes ausprobiert hatten.
+    var defaults = palette + '|' + font;
+    if (state.defaults !== defaults) {
+      delete state.palette;
+      delete state.font;
+      state.defaults = defaults;
+    }
     palette = params.get('palette') || state.palette || palette;
     font = params.get('font') || state.font || font;
     state.palette = palette;
