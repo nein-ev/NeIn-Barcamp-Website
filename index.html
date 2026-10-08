@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NeIn-Barcamp 2026 · Informatik, Digitalisierung, KI · 5. November 2026, Leipzig</title>
-  <meta name="description" content="Das NeIn-Barcamp am 5. November 2026: eine Fortbildung im Barcamp-Format rund um Informatik, Digitalisierung und KI in der Schule, an der Johanna-Moosdorf-Schule in Leipzig – Rahmeninfos, Ablauf, Essensbuchung, Sessionplan und Edupads.">
+  <meta name="description" content="Das NeIn-Barcamp am 5. November 2026: eine Fortbildung im Barcamp-Format rund um Informatik, Digitalisierung und KI in der Schule, an der Johanna-Moosdorf-Schule in Leipzig – Rahmeninfos, Ablauf, Essensbuchung, Sessionplan und Pads.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="NeIn-Barcamp 2026">
   <meta property="og:description" content="Fortbildung im Barcamp-Format: Informatik · Digitalisierung · KI · Donnerstag, 5. November 2026, Johanna-Moosdorf-Schule Leipzig">
@@ -78,11 +78,11 @@
       <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
         <ul>
           <li data-phases="live after" hidden><a class="nav-live" href="#live"><span class="live-dot" aria-hidden="true"></span><span data-phases="live">Live</span><span data-phases="after" hidden>Rückblick</span></a></li>
-          <li data-phases="live after" hidden><a href="#pads">Edupads</a></li>
+          <li data-phases="live after" hidden><a href="#pads">Pads</a></li>
           <li><a href="#infos">Infos</a></li>
           <li><a href="#barcamp">Barcamp</a></li>
           <li><a href="#ablauf">Ablauf</a></li>
-          <li><a href="#essen">Essen</a></li>
+          <li data-phases="before"><a href="#essen">Essen</a></li>
           <li><a class="nav-ext" href="https://neueinformatik.de/" rel="noopener">Verein <svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a></li>
         </ul>
       </nav>
@@ -381,7 +381,7 @@
             </p>
             <h2 class="section-title" id="live-title">Sessionplan</h2>
             <p class="section-lead" data-phases="live">Themen und Räume – wird während der Sessionplanung live ergänzt. Die Seite aktualisiert sich von selbst.</p>
-            <p class="section-lead" data-phases="after" hidden>Alle Sessions des Barcamps – mit den Edupads zum Nachlesen.</p>
+            <p class="section-lead" data-phases="after" hidden>Alle Sessions des Barcamps – mit den Pads zum Nachlesen.</p>
           </div>
           <div class="live__tools">
             <span class="live__updated" id="board-updated" aria-live="polite"></span>
@@ -400,15 +400,15 @@
             <p class="board__status">Sessionplan wird geladen …</p>
           </div>
         </div>
-        <p class="board__hint">Tipp: Klickt auf ein Thema mit Pad-Symbol, um die Mitschrift direkt hier zu öffnen.</p>
+        <p class="board__hint">Tipp: Jede Session hat ihr eigenes Pad – klickt auf das Thema, um die Mitschrift direkt hier zu öffnen.</p>
 
         <div class="pads" id="pads">
           <div class="pads__head">
-            <h3 class="pads__title"><svg class="icon" aria-hidden="true"><use href="#i-pad"/></svg>Edupads – gemeinsam dokumentieren</h3>
+            <h3 class="pads__title"><svg class="icon" aria-hidden="true"><use href="#i-pad"/></svg>Pads – gemeinsam dokumentieren</h3>
             <p>Schreibt mit, ergänzt Links und haltet Ergebnisse fest. Alle Pads sind für alle Teilnehmenden offen – auch nach dem Barcamp.</p>
           </div>
 
-          <div class="pads__tabs" id="pad-tabs" role="tablist" aria-label="Edupads"></div>
+          <div class="pads__tabs" id="pad-tabs" role="tablist" aria-label="Pads"></div>
 
           <div class="pads__viewer" id="pad-viewer">
             <div class="pads__bar">
@@ -425,7 +425,7 @@
               <div class="pads__consent" id="pad-consent">
                 <svg class="icon icon--lg" aria-hidden="true"><use href="#i-pad"/></svg>
                 <p><strong>Pad hier auf der Seite anzeigen?</strong><br>
-                Dabei wird eine Verbindung zum Pad-Anbieter <span id="pad-host">edupad.ch</span> aufgebaut.</p>
+                Dabei wird eine Verbindung zum Pad-Anbieter <span id="pad-host">yopad.eu</span> aufgebaut.</p>
                 <button class="btn btn--primary" type="button" id="pad-consent-btn">Pads anzeigen</button>
               </div>
             </div>
@@ -465,19 +465,20 @@
             <span class="fact__icon"><svg class="icon" aria-hidden="true"><use href="#i-ticket"/></svg></span>
             <h3 class="fact__label">Teilnahme</h3>
             <p class="fact__value ph">Kostenfrei</p>
-            <p class="fact__text">Das Mittagessen bucht ihr separat <a href="#essen">hier auf der Seite</a>.</p>
+            <p class="fact__text" data-phases="before">Das Mittagessen bucht ihr separat <a href="#essen">hier auf der Seite</a>.</p>
           </article>
           <article class="fact">
             <span class="fact__icon"><svg class="icon" aria-hidden="true"><use href="#i-laptop"/></svg></span>
             <h3 class="fact__label">Mitbringen</h3>
             <p class="fact__value">Laptop oder Tablet</p>
-            <p class="fact__text">Für die Edupads und zum Ausprobieren. Und gern: eine Frage oder Idee für eine Session.</p>
+            <p class="fact__text">Für die Pads und zum Ausprobieren. Und gern: eine Frage oder Idee für eine Session.</p>
           </article>
           <article class="fact">
             <span class="fact__icon"><svg class="icon" aria-hidden="true"><use href="#i-utensils"/></svg></span>
             <h3 class="fact__label">Essen</h3>
             <p class="fact__value">Mittagessen vor Ort</p>
-            <p class="fact__text">Bitte bis <span class="ph" data-deadline-text="short">Donnerstag, 29. Oktober</span> <a href="#essen">online buchen</a>.</p>
+            <p class="fact__text" data-phases="before">Bitte bis <span class="ph" data-deadline-text="short">Donnerstag, 29. Oktober</span> <a href="#essen">online buchen</a>.</p>
+            <p class="fact__text" data-phases="live after over" hidden>Für alle, die vorab gebucht haben.</p>
           </article>
         </div>
       </div>
@@ -521,7 +522,7 @@
             <span class="principle__no">04</span>
             <svg class="icon principle__icon" aria-hidden="true"><use href="#i-pad"/></svg>
             <h3>Alles wird dokumentiert</h3>
-            <p>In Edupads halten wir die Ergebnisse fest – für alle, auch nach dem Barcamp.</p>
+            <p>Jede Session bekommt ihr eigenes Pad – dort halten wir die Ergebnisse fest – für alle, auch nach dem Barcamp.</p>
           </li>
         </ol>
       </div>
@@ -565,7 +566,7 @@
     </section>
 
     <!-- ================================================================ ESSEN -->
-    <section class="section section--alt" id="essen" aria-labelledby="essen-title">
+    <section class="section section--alt" id="essen" aria-labelledby="essen-title" data-phases="before">
       <div class="container split split--form">
         <div class="split__text">
           <p class="eyebrow">// Verpflegung</p>

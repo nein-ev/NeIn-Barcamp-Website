@@ -11,7 +11,7 @@ window.BARCAMP_CONFIG = {
   },
 
   live: {
-    // Ab diesem Tag (00:00 Uhr) erscheinen Sessionplan und Edupads auf der Seite.
+    // Ab diesem Tag (00:00 Uhr) erscheinen Sessionplan und Pads auf der Seite.
     from: '2026-11-05',
     // Bis einschließlich diesem Tag bleiben sie sichtbar. null = dauerhaft
     // (nach dem Barcamp als „Rückblick“ zur Dokumentation).
@@ -29,26 +29,37 @@ window.BARCAMP_CONFIG = {
     // vorher wird keine Verbindung zum Pad-Anbieter aufgebaut).
     clickToLoad: true,
     // Links auf diese Domains im Sessionplan öffnen sich im Pad-Fenster der Seite.
-    hosts: ['edupad.ch'],
+    hosts: ['yopad.eu'],
+    // Jede Session im Sessionplan bekommt automatisch ein eigenes Pad.
+    // Adresse: base + prefix + '-' + Uhrzeit + '-' + Raum + suffix, z. B.
+    //   https://yopad.eu/p/NeIn-Barcamp-2026-1015-Raum-A-365days
+    // („365days“ = das Pad bleibt bei yopad.eu ein Jahr lang erhalten.)
+    // Steht in einer Zelle schon ein Link, wird dieser verwendet.
+    sessionPads: {
+      enabled: true,
+      base: 'https://yopad.eu/p/',
+      prefix: 'NeIn-Barcamp-2026',
+      suffix: '-365days',
+    },
     // Optional an die eingebettete Pad-Adresse angehängt (Etherpad-Parameter).
     embedParams: 'showChat=false&showLineNumbers=false',
-    // Allgemeine Pads – BEISPIEL-LINKS, bitte durch eure echten Pads ersetzen.
+    // Allgemeine Pads (yopad.eu legt ein Pad beim ersten Aufruf automatisch an).
     // Pads zu einzelnen Sessions verlinkt ihr einfach im Sessionplan (sessions.md).
     list: [
       {
         title: 'Sessionplanung & Ideen',
         description: 'Alle Sessionvorschläge, auch die, die heute keinen Platz gefunden haben.',
-        url: 'https://edupad.ch/p/nein-barcamp-2026-ideen',
+        url: 'https://yopad.eu/p/NeIn-Barcamp-2026-Ideen-365days',
       },
       {
         title: 'Linksammlung',
         description: 'Tools, Material und Links, die in den Sessions genannt wurden.',
-        url: 'https://edupad.ch/p/nein-barcamp-2026-links',
+        url: 'https://yopad.eu/p/NeIn-Barcamp-2026-Links-365days',
       },
       {
         title: 'Feedback',
         description: 'Was nehmt ihr mit? Was wünscht ihr euch fürs nächste Mal?',
-        url: 'https://edupad.ch/p/nein-barcamp-2026-feedback',
+        url: 'https://yopad.eu/p/NeIn-Barcamp-2026-Feedback-365days',
       },
     ],
   },

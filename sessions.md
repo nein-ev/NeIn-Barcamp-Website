@@ -6,8 +6,12 @@
   • Jede Zeile der Tabelle ist ein Zeitfenster, jede Spalte ein Raum.
   • Die erste Spalte enthält die Uhrzeit (z. B. 10:15 – 11:00). Die laufende Runde
     wird auf der Seite automatisch als „Jetzt“ markiert, die nächste als „Gleich“.
-  • Ein Thema mit eigenem Pad:   [Python im Anfangsunterricht](https://edupad.ch/p/barcamp-python)
-    → Klick auf das Thema öffnet das Pad direkt auf der Seite.
+  • Pads entstehen automatisch: Jedes eingetragene Thema wird auf der Seite mit einem
+    eigenen Pad verlinkt, benannt nach Uhrzeit und Raum, z. B.
+    10:15 in „Raum A“ → https://yopad.eu/p/NeIn-Barcamp-2026-1015-Raum-A-365days
+    Wichtig: Wird eine Session nachträglich verschoben, wandert der Link mit der Zelle mit.
+    Soll ein bestimmtes Pad fest bleiben, den Link selbst eintragen:
+    [Python im Anfangsunterricht](https://yopad.eu/p/NeIn-Barcamp-2026-1015-Raum-A-365days)
   • Zweite Zeile in einer Zelle:  **Thema**<br>_Workshop · Anna_
   • Noch leer?  Einfach · oder – eintragen.
   • Text außerhalb der Tabelle (Absätze, Überschriften, Listen) wird ebenfalls angezeigt.

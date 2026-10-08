@@ -4,7 +4,7 @@
    · Countdown, Navigation
    · Essensbuchung über FormSubmit (Formular-Adresse steht in index.html)
    · Sessionplan aus sessions.md (lädt sich selbst neu, Beamer-Ansicht)
-   · Edupads als eingebettetes Fenster
+   · Pads (yopad.eu) als eingebettetes Fenster, ein Pad pro Session
    ========================================================================== */
 (function () {
   'use strict';
@@ -371,6 +371,51 @@
     span.insertAdjacentHTML('beforeend', iconHtml);
   }
 
+  // ---------------------------------------------------------------- Ein Pad pro Session
+  // Jede ausgefüllte Zelle bekommt automatisch ein Pad, benannt nach Uhrzeit und Raum:
+  // 10:15 in „Raum A (Aula)“ → https://yopad.eu/p/NeIn-Barcamp-2026-1015-Raum-A-Aula-365days
+
+  function slug(text) {
+    return String(text)
+      .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue')
+      .replace(/Ä/g, 'Ae').replace(/Ö/g, 'Oe').replace(/Ü/g, 'Ue').replace(/ß/g, 'ss')
+      .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^A-Za-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function sessionPadId(timeText, room) {
+    var sp = PADS.sessionPads || {};
+    var m = timeText.match(TIME_RE);
+    if (!m) return null;
+    var hhmm = ('0' + m[1]).slice(-2) + m[2];
+    return [sp.prefix, hhmm, slug(room)].filter(Boolean).join('-');
+  }
+
+  function addSessionPads(tr) {
+    var sp = PADS.sessionPads || {};
+    if (!sp.enabled || !sp.base) return;
+    var cells = Array.prototype.slice.call(tr.children);
+    if (!cells[0] || !cells[0].classList.contains('is-time')) return;
+
+    cells.slice(1).forEach(function (td) {
+      if (/is-(empty|blank|span)/.test(td.className) || td.querySelector('a')) return;
+      var room = td.getAttribute('data-label') || '';
+      var id = room && sessionPadId(cells[0].textContent, room);
+      if (!id) return;
+
+      // Erste Zeile der Zelle (bis zum ersten Zeilenumbruch) wird zum Link
+      var a = document.createElement('a');
+      a.href = sp.base + id + (sp.suffix || '');
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.title = 'Pad: ' + id;
+      while (td.firstChild && td.firstChild.nodeName !== 'BR') a.appendChild(td.firstChild);
+      if (!a.textContent.trim()) return;
+      td.insertBefore(a, td.firstChild);
+    });
+  }
+
   function enhanceBoard(container) {
     var padLinks = 0;
     $$('table', container).forEach(function (table) {
@@ -394,6 +439,7 @@
       });
       if (rows.some(function (tr) { return tr.children[0] && tr.children[0].classList.contains('is-time'); })) {
         table.classList.add('has-time');
+        rows.forEach(addSessionPads);
       }
     });
     $$('a', container).forEach(function (a) {
@@ -402,7 +448,7 @@
       a.classList.add('pad-link');
       a.setAttribute('data-pad', '');
       glueIcon(a, '<svg class="icon" aria-hidden="true"><use href="#i-pad"/></svg>');
-      a.setAttribute('aria-label', a.textContent.trim() + ' – Edupad öffnen');
+      a.setAttribute('aria-label', a.textContent.trim() + ' – Pad öffnen');
     });
     var hint = $('.board__hint');
     if (hint) hint.hidden = padLinks === 0;
@@ -597,7 +643,7 @@
       iframe.setAttribute('allow', 'clipboard-read; clipboard-write');
       frame.appendChild(iframe);
     }
-    iframe.title = 'Edupad: ' + pads.current.title;
+    iframe.title = 'Pad: ' + pads.current.title;
     iframe.src = embedUrl(pads.current.url);
   }
 
@@ -622,7 +668,8 @@
   }
 
   function openSessionPad(title, url) {
-    pads.session = { title: title, url: url, session: true };
+    var id = decodeURIComponent(url.split('/p/').pop() || '');
+    pads.session = { title: title, url: url, session: true, description: id ? 'Pad: ' + id : '' };
     selectPad(pads.session);
     $('#pads').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }

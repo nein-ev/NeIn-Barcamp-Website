@@ -1,7 +1,7 @@
 # NeIn-Barcamp 2026
 
 Website zum Barcamp am **Donnerstag, 5. November 2026**: Rahmeninfos, Ablauf, Essensbuchung –
-und am Barcamp-Tag selbst Sessionplan und Edupads.
+und am Barcamp-Tag selbst Sessionplan und ein Pad pro Session.
 
 Reines HTML/CSS/JavaScript ohne Build-Schritt. Läuft direkt auf GitHub Pages.
 
@@ -110,7 +110,7 @@ per E-Mail an **hanstydecks.tea@gmail.com**. Wer bucht, bekommt automatisch eine
 
 ## Am Barcamp-Tag
 
-Ab dem 5.11.2026, 0:00 Uhr (deutsche Zeit), erscheinen automatisch **Sessionplan** und **Edupads** oben auf der Seite.
+Ab dem 5.11.2026, 0:00 Uhr (deutsche Zeit), erscheinen automatisch **Sessionplan** und **Pads** oben auf der Seite, die Essensbuchung verschwindet.
 Danach bleiben sie als „Rückblick“ sichtbar (einstellbar über `live.until` in `config.js`).
 
 ### Sessionplan live bearbeiten
@@ -122,28 +122,34 @@ Plan jede Minute von selbst neu. Niemand muss etwas neu laden.
 ```markdown
 | Zeit          | Raum A | Raum B | Raum C |
 | ------------- | ------ | ------ | ------ |
-| 10:15 – 11:00 | [Python im Anfangsunterricht](https://edupad.ch/p/barcamp-python)<br>_Workshop_ | KI & Schule | · |
+| 10:15 – 11:00 | Python im Anfangsunterricht<br>_Workshop_ | KI & Schule | · |
 | 12:00 – 13:00 | _Mittagessen_ | | |
 ```
 
 - Erste Spalte = Uhrzeit. Die laufende Runde wird als **„Jetzt“** markiert, die nächste als **„Gleich“**.
 - Ist nur die erste Raumspalte gefüllt (z. B. „Mittagessen“), läuft der Eintrag über alle Räume.
-- Themen mit Pad-Link öffnen das Pad per Klick direkt auf der Seite.
+- Jedes Thema wird automatisch mit seinem Pad verlinkt und öffnet es per Klick direkt auf der Seite.
 - **Beamer-Ansicht**: Knopf über dem Plan. Zeigt den Plan bildschirmfüllend mit Uhr, z. B. für den Eingangsbereich.
 
-### Edupads
+### Pads (yopad.eu)
 
-Allgemeine Pads (Ideen, Links, Feedback …) stehen in `config.js` unter `pads.list` – **dort sind noch
-Beispiel-Links eingetragen**, bitte durch eure echten Pads ersetzen. Pads zu einzelnen Sessions verlinkt ihr
-einfach in `sessions.md`.
+**Jede Session bekommt automatisch ihr eigenes Pad.** Ihr tragt in `sessions.md` nur das Thema ein –
+die Seite verlinkt es selbst. Der Pad-Name ergibt sich aus Uhrzeit und Raum:
 
+| Zelle im Sessionplan | Pad |
+|---|---|
+| 10:15, Spalte „Raum A“ | `https://yopad.eu/p/NeIn-Barcamp-2026-1015-Raum-A-365days` |
+| 13:00, Spalte „Raum D (Informatikraum)“ | `https://yopad.eu/p/NeIn-Barcamp-2026-1300-Raum-D-Informatikraum-365days` |
+
+yopad.eu legt das Pad beim ersten Aufruf selbst an; `-365days` heißt, es bleibt ein Jahr erhalten.
+Einstellbar in `config.js` unter `pads.sessionPads` (Präfix, Endung, an/aus).
+
+- Wird eine Session nachträglich in einen anderen Raum oder Slot verschoben, zeigt die Zelle auf das Pad
+  des neuen Platzes. Soll ein Pad fest an einer Session hängen, den Link selbst in die Zelle schreiben:
+  `[Python im Anfangsunterricht](https://yopad.eu/p/NeIn-Barcamp-2026-1015-Raum-A-365days)`.
+- Allgemeine Pads (Ideen, Links, Feedback) stehen in `config.js` unter `pads.list`.
 - Pads werden erst nach einem Klick auf „Pads anzeigen“ eingebettet (datenschutzfreundlich).
-  Mit `clickToLoad: false` laden sie sofort.
-- Jedes Pad lässt sich zusätzlich „In neuem Tab öffnen“, falls der Pad-Anbieter das Einbetten blockiert.
-  Bitte vorher einmal testen.
-- Links auf andere Pad-Dienste? Domain in `pads.hosts` ergänzen.
-- Die Pad-Links stehen im Quelltext und sind dort schon vor dem Barcamp-Tag lesbar. Wer das nicht möchte,
-  trägt sie erst am Morgen ein.
+  Jedes Pad lässt sich auch „In neuem Tab öffnen“, falls yopad.eu das Einbetten blockiert – bitte vorher testen.
 
 ---
 
