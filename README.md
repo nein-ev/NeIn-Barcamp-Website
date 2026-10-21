@@ -23,15 +23,16 @@ Ein Doppelklick auf `index.html` reicht nicht, weil der Browser dann den Session
 
 ## Design-Werkstatt (Farben & Schriften testen)
 
-Unten rechts auf der Seite sitzt der Knopf **„Design“**. Er ist für alle sichtbar, solange in `config.js`
-`design.panel: true` steht. Damit lassen sich ausprobieren:
+Die Design-Werkstatt ist für Besucher ausgeblendet (`design.panel: false` in `config.js`). Das Orga-Team
+öffnet die Seite einmal mit **`…/index.html?design=1`**; danach sitzt unten rechts der Knopf **„Design“**
+(bleibt im Browser gespeichert, aus mit `?design=0`). Damit lassen sich ausprobieren:
 
 | | |
 |---|---|
 | **7 Farbpaletten** | eure Paletten 1–7, jeweils fest in Rollen übersetzt (Hintergrund, Text, Buttons …) und auf Lesbarkeit geprüft |
 | **7 Schriftkombinationen** | Überschrift / Fließtext / Akzentschrift, siehe unten |
-| **Seitenzustand** | „Vor dem Barcamp“, „Barcamp-Tag (live)“, „Nach dem Barcamp“ – so seht ihr Sessionplan und Pads schon jetzt |
-| **Beispiel-Sessionplan** | zeigt `sessions.beispiel.md` statt der echten (noch leeren) `sessions.md` |
+| **Seitenzustand** | „Vor dem Barcamp“, „Barcamp-Tag (live)“, „Nach dem Barcamp“ – so seht ihr Sessionplan, Pads und Rückblick schon jetzt. Gilt nur im aktuellen Tab. |
+| **Beispiel-Sessionplan** | zeigt bei simuliertem Seitenzustand `sessions.beispiel.md` statt der echten `sessions.md`. Nach echtem Datum wird immer `sessions.md` geladen. |
 | **Platzhalter markieren** | rahmt alle Texte ein, die noch angepasst werden müssen |
 | **Link kopieren** | Link zur aktuellen Kombination, z. B. für den Team-Chat (`?palette=3&font=editorial`) |
 | **CSS-Variablen kopieren** | alle Farb- und Schriftwerte als CSS, z. B. für neueinformatik.de |
@@ -60,8 +61,7 @@ aus wie ein kleines l („Neln“).
 Das ist der Standard für alle Besucher (`assets/js/config.js`). Wer vorher im Panel etwas anderes
 ausprobiert hatte, bekommt beim nächsten Besuch automatisch den neuen Standard.
 
-Wenn das Panel verschwinden soll, in `config.js` `panel: false` setzen. Es bleibt für euch dann
-über `…/index.html?design=1` erreichbar (aus mit `?design=0`).
+Das Panel ist für Besucher aus (`panel: false`) und für euch über `…/index.html?design=1` erreichbar.
 
 Wer später eine Palette ändert oder ergänzt, prüft die Kontraste mit `node tools/check-contrast.mjs`.
 
@@ -104,14 +104,22 @@ per E-Mail an **hanstydecks.tea@gmail.com**. Wer bucht, bekommt automatisch eine
 - **Adresse verbergen (empfohlen):** Nach der Aktivierung nennt FormSubmit eine zufällige Zeichenfolge.
   Damit in `index.html` im `<form action="https://formsubmit.co/hanstydecks.tea@gmail.com">` die
   Mailadresse ersetzen, dann landet sie nicht mehr bei Spam-Bots.
-- **Anmeldeschluss:** `meal.deadline` in `config.js` (aktuell 29.10.2026). Danach schließt sich das Formular automatisch.
+- **Anmeldeschluss:** `meal.deadline` in `config.js` (aktuell 29.10.2026). Danach schließt sich das Formular automatisch,
+  und der Knopf „Mittagessen buchen“ oben sowie der Menüpunkt „Essen“ verschwinden.
 
 ---
 
-## Am Barcamp-Tag
+## Die drei Phasen der Seite
 
-Ab dem 5.11.2026, 0:00 Uhr (deutsche Zeit), erscheinen automatisch **Sessionplan** und **Pads** oben auf der Seite, die Essensbuchung verschwindet.
-Danach bleiben sie als „Rückblick“ sichtbar (einstellbar über `live.until` in `config.js`).
+Die Seite stellt sich nach dem Datum (deutsche Zeit) selbst um – niemand muss etwas umschalten:
+
+| Zeitraum | Seite |
+|---|---|
+| bis 4.11.2026 | **Vorbereitung**: Countdown, Infos, Barcamp-Format, Ablauf, Essensbuchung (bis Anmeldeschluss) |
+| 5.11.2026, ab 0:00 Uhr | **Barcamp-Tag**: Sessionplan und Pads ganz oben, Essensbuchung weg, Infos darunter |
+| ab 6.11.2026 | **Rückblick**: „Danke fürs Mitmachen“, Sessionplan und Pads zum Nachlesen, Knopf „Feedback geben“ (öffnet das Feedback-Pad). Infos, Format und Ablauf sind ausgeblendet. |
+
+## Am Barcamp-Tag
 
 ### Sessionplan live bearbeiten
 

@@ -599,13 +599,24 @@ code {
   .hero__media { max-width: 560px; width: 100%; margin-inline: auto; }
 }
 
-/* Am Barcamp-Tag: kompakter Kopfbereich, Sessionplan rückt nach oben */
-[data-phase="live"] .hero { padding-block: clamp(28px, 4vw, 48px) clamp(32px, 4vw, 56px); }
-[data-phase="live"] .hero__grid { grid-template-columns: 1fr; }
+/* Am Barcamp-Tag und im Rückblick: kompakter Kopfbereich, Sessionplan rückt nach oben */
+[data-phase="live"] .hero,
+[data-phase="after"] .hero { padding-block: clamp(28px, 4vw, 48px) clamp(32px, 4vw, 56px); }
+[data-phase="live"] .hero__grid,
+[data-phase="after"] .hero__grid { grid-template-columns: 1fr; }
 [data-phase="live"] .hero__media,
+[data-phase="after"] .hero__media,
 [data-phase="live"] .hero__lead { display: none; }
-[data-phase="live"] .hero-logo { width: min(100%, 300px); margin-bottom: 22px; }
-[data-phase="live"] .hero__meta { margin-bottom: 24px; }
+[data-phase="live"] .hero-logo,
+[data-phase="after"] .hero-logo { width: min(100%, 300px); margin-bottom: 22px; }
+[data-phase="live"] .hero__meta,
+[data-phase="after"] .hero__meta { margin-bottom: 24px; }
+
+[data-phase="after"] .nav-live .live-dot { display: none; }
+
+/* Essensbuchung offen / nach Anmeldeschluss */
+[data-meal="closed"] [data-meal-only="open"],
+[data-meal="open"] [data-meal-only="closed"] { display: none !important; }
 
 /* ---------------------------------------------------------------- Abschnitte */
 

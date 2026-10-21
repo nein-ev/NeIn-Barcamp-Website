@@ -11,7 +11,16 @@
     if (params.get('design') === '1') localStorage.setItem('nein-design-unlock', '1');
     if (params.get('design') === '0') localStorage.removeItem('nein-design-unlock');
     if (localStorage.getItem('nein-design-unlock') === '1') enabled = true;
-    if (enabled) state = JSON.parse(localStorage.getItem('nein-design') || '{}') || {};
+    if (enabled) {
+      state = JSON.parse(localStorage.getItem('nein-design') || '{}') || {};
+      // Simulierter Seitenzustand gilt nur für diesen Tab (sessionStorage), damit er
+      // nicht versehentlich bis zum Barcamp-Tag hängen bleibt.
+      delete state.phase;
+      delete state.example;
+      var sim = JSON.parse(sessionStorage.getItem('nein-design-sim') || '{}') || {};
+      if (sim.phase) state.phase = sim.phase;
+      if (sim.example !== undefined) state.example = sim.example;
+    }
   } catch (e) {
     /* privater Modus o. Ä. – dann eben ohne Speicherung */
   }

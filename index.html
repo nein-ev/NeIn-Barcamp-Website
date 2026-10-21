@@ -79,10 +79,10 @@
         <ul>
           <li data-phases="live after" hidden><a class="nav-live" href="#live"><span class="live-dot" aria-hidden="true"></span><span data-phases="live">Live</span><span data-phases="after" hidden>Rückblick</span></a></li>
           <li data-phases="live after" hidden><a href="#pads">Pads</a></li>
-          <li><a href="#infos">Infos</a></li>
-          <li><a href="#barcamp">Barcamp</a></li>
-          <li><a href="#ablauf">Ablauf</a></li>
-          <li data-phases="before"><a href="#essen">Essen</a></li>
+          <li data-phases="before live"><a href="#infos">Infos</a></li>
+          <li data-phases="before live"><a href="#barcamp">Barcamp</a></li>
+          <li data-phases="before live"><a href="#ablauf">Ablauf</a></li>
+          <li data-phases="before" data-meal-only="open"><a href="#essen">Essen</a></li>
           <li><a class="nav-ext" href="https://neueinformatik.de/" rel="noopener">Verein <svg class="icon icon--sm" aria-hidden="true"><use href="#i-external"/></svg></a></li>
         </ul>
       </nav>
@@ -292,22 +292,29 @@
             <p class="hero-logo__tag">Informatik <span aria-hidden="true">•</span> Digitalisierung <span aria-hidden="true">•</span> KI</p>
           </div>
 
-          <p class="hero__lead">
+          <p class="hero__lead" data-phases="before">
             Ein Tag rund um Informatik, Digitalisierung und KI in der Schule – mit den Themen, die ihr mitbringt.
             Es gibt kein festes Programm: Wir sammeln morgens gemeinsam die Sessions,
             teilen Erfahrungen aus dem Unterricht und nehmen Ideen mit, die am nächsten Tag funktionieren.
+          </p>
+          <p class="hero__lead" data-phases="after" hidden>
+            <strong>Danke fürs Mitmachen!</strong> Hier findet ihr alle Sessions mit ihren Pads zum Nachlesen –
+            und könnt uns sagen, was ihr mitnehmt und was wir beim nächsten Mal besser machen können.
           </p>
 
           <ul class="hero__meta">
             <li><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span><strong>Donnerstag, 5. November 2026</strong></span></li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span class="ph">9:00 – 15:30 Uhr</span></li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span>Johanna-Moosdorf-Schule, Leipzig</span></li>
+            <li data-phases="after" hidden><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg><span class="ph">Rund 60 Lehrkräfte</span></li>
           </ul>
 
           <div class="hero__actions">
-            <a class="btn btn--hero" href="#essen" data-phases="before">Mittagessen buchen <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="btn btn--hero" href="#live" data-phases="live after" hidden>Zum Sessionplan <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="btn btn--hero-ghost" href="#barcamp">Was ist ein Barcamp?</a>
+            <a class="btn btn--hero" href="#essen" data-phases="before" data-meal-only="open">Mittagessen buchen <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--hero" href="#live" data-phases="live" hidden>Zum Sessionplan <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--hero" href="#live" data-phases="after" hidden>Sessions &amp; Pads nachlesen <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--hero-ghost" href="#pads" data-phases="after" data-open-pad="Feedback" hidden>Feedback geben</a>
+            <a class="btn btn--hero-ghost" href="#barcamp" data-phases="before live">Was ist ein Barcamp?</a>
           </div>
         </div>
 
@@ -405,7 +412,8 @@
         <div class="pads" id="pads">
           <div class="pads__head">
             <h3 class="pads__title"><svg class="icon" aria-hidden="true"><use href="#i-pad"/></svg>Pads – gemeinsam dokumentieren</h3>
-            <p>Schreibt mit, ergänzt Links und haltet Ergebnisse fest. Alle Pads sind für alle Teilnehmenden offen – auch nach dem Barcamp.</p>
+            <p data-phases="live">Schreibt mit, ergänzt Links und haltet Ergebnisse fest. Alle Pads sind für alle Teilnehmenden offen – auch nach dem Barcamp.</p>
+            <p data-phases="after" hidden>Alle Mitschriften bleiben ein Jahr lang auf yopad.eu erhalten. Ergänzungen sind weiterhin willkommen.</p>
           </div>
 
           <div class="pads__tabs" id="pad-tabs" role="tablist" aria-label="Pads"></div>
@@ -435,7 +443,7 @@
     </section>
 
     <!-- ================================================================ AUF EINEN BLICK -->
-    <section class="section" id="infos" aria-labelledby="infos-title">
+    <section class="section" id="infos" aria-labelledby="infos-title" data-phases="before live">
       <div class="container">
         <header class="section-head">
           <p class="eyebrow">// Auf einen Blick</p>
@@ -465,7 +473,7 @@
             <span class="fact__icon"><svg class="icon" aria-hidden="true"><use href="#i-ticket"/></svg></span>
             <h3 class="fact__label">Teilnahme</h3>
             <p class="fact__value ph">Kostenfrei</p>
-            <p class="fact__text" data-phases="before">Das Mittagessen bucht ihr separat <a href="#essen">hier auf der Seite</a>.</p>
+            <p class="fact__text" data-phases="before" data-meal-only="open">Das Mittagessen bucht ihr separat <a href="#essen">hier auf der Seite</a>.</p>
           </article>
           <article class="fact">
             <span class="fact__icon"><svg class="icon" aria-hidden="true"><use href="#i-laptop"/></svg></span>
@@ -477,7 +485,8 @@
             <span class="fact__icon"><svg class="icon" aria-hidden="true"><use href="#i-utensils"/></svg></span>
             <h3 class="fact__label">Essen</h3>
             <p class="fact__value">Mittagessen vor Ort</p>
-            <p class="fact__text" data-phases="before">Bitte bis <span class="ph" data-deadline-text="short">Donnerstag, 29. Oktober</span> <a href="#essen">online buchen</a>.</p>
+            <p class="fact__text" data-phases="before" data-meal-only="open">Bitte bis <span class="ph" data-deadline-text="short">Donnerstag, 29. Oktober</span> <a href="#essen">online buchen</a>.</p>
+            <p class="fact__text" data-phases="before" data-meal-only="closed" hidden>Die Buchung ist geschlossen – Fragen zum Essen klären wir gern vor Ort.</p>
             <p class="fact__text" data-phases="live after over" hidden>Für alle, die vorab gebucht haben.</p>
           </article>
         </div>
@@ -485,7 +494,7 @@
     </section>
 
     <!-- ================================================================ WAS IST EIN BARCAMP -->
-    <section class="section section--alt" id="barcamp" aria-labelledby="barcamp-title">
+    <section class="section section--alt" id="barcamp" aria-labelledby="barcamp-title" data-phases="before live">
       <div class="container split">
         <div class="split__text">
           <p class="eyebrow">// Das Format</p>
@@ -529,7 +538,7 @@
     </section>
 
     <!-- ================================================================ ABLAUF -->
-    <section class="section" id="ablauf" aria-labelledby="ablauf-title">
+    <section class="section" id="ablauf" aria-labelledby="ablauf-title" data-phases="before live">
       <div class="container">
         <header class="section-head">
           <p class="eyebrow">// Ablauf</p>

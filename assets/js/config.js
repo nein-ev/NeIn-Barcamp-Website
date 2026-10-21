@@ -76,7 +76,7 @@ window.BARCAMP_CONFIG = {
     // false = Besucher sehen es nicht; das Orga-Team öffnet die Seite einmal
     // mit ?design=1 in der Adresse (bleibt im Browser gespeichert, aus mit ?design=0).
     // Sobald Farben und Schrift feststehen: auf false setzen.
-    panel: true,
+    panel: false,
     // Standard-Palette (1–7) und Schriftkombination für alle Besucher.
     // Entschieden: 4 „Schulgarten“ + „Werkstatt“.
     palette: '4',

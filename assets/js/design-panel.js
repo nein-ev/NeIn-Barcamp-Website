@@ -53,8 +53,13 @@
   if (!state.phase) state.phase = 'auto';
   if (state.example === undefined) state.example = true;
 
+  // Farben, Schrift & Co. bleiben gespeichert; der simulierte Seitenzustand nur in diesem Tab
+  var SIM_KEYS = ['phase', 'example'];
   function save() {
-    try { localStorage.setItem('nein-design', JSON.stringify(state)); } catch (e) { /* egal */ }
+    var keep = {}, sim = {};
+    Object.keys(state).forEach(function (k) { (SIM_KEYS.indexOf(k) === -1 ? keep : sim)[k] = state[k]; });
+    try { localStorage.setItem('nein-design', JSON.stringify(keep)); } catch (e) { /* egal */ }
+    try { sessionStorage.setItem('nein-design-sim', JSON.stringify(sim)); } catch (e) { /* egal */ }
   }
   function emit(detail) {
     document.dispatchEvent(new CustomEvent('barcamp:design', { detail: detail }));

@@ -190,6 +190,7 @@
   function updateMeal() {
     if (!meal.form) return;
     var closed = phase !== 'before' || (MEAL.deadline && todayISO() > MEAL.deadline);
+    root.setAttribute('data-meal', closed ? 'closed' : 'open');
     meal.form.hidden = closed || meal.done;
     meal.doneBox.hidden = closed || !meal.done;
     meal.closedBox.hidden = !closed;
@@ -341,8 +342,11 @@
   var EMPTY_RE = /^\s*(?:[-–—·.…]|tba|tbd|frei)?\s*$/i;
 
   function boardSource() {
+    // Beispielplan nur, wenn im Design-Panel ein Seitenzustand simuliert wird –
+    // nach echtem Datum gilt immer sessions.md.
     var s = designState();
-    return s.example && LIVE.exampleFile ? LIVE.exampleFile : (LIVE.sessionsFile || 'sessions.md');
+    var simulated = s.phase && s.phase !== 'auto';
+    return simulated && s.example && LIVE.exampleFile ? LIVE.exampleFile : (LIVE.sessionsFile || 'sessions.md');
   }
 
   function isPadUrl(href) {
@@ -600,7 +604,7 @@
     clearInterval(board.tick);
   }
 
-  // ---------------------------------------------------------------- Edupads
+  // ---------------------------------------------------------------- Pads
 
   var pads = { current: null, session: null, consent: false, ready: false };
 
@@ -716,6 +720,15 @@
     } else {
       $('#pad-viewer').hidden = true;
     }
+
+    // Knöpfe wie „Feedback geben“ öffnen ein bestimmtes Pad aus der Liste
+    $$('[data-open-pad]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var name = btn.getAttribute('data-open-pad').toLowerCase();
+        var pad = (PADS.list || []).filter(function (p) { return p.title.toLowerCase().indexOf(name) !== -1; })[0];
+        if (pad) selectPad(pad);
+      });
+    });
   }
 
   // ---------------------------------------------------------------- Start
