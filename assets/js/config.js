@@ -64,13 +64,6 @@ window.BARCAMP_CONFIG = {
     ],
   },
 
-  meal: {
-    // Letzter Tag, an dem das Mittagessen gebucht werden kann (einschließlich).
-    // Danach wird das Formular automatisch geschlossen.
-    // Die Empfänger-Adresse steht im Formular in index.html (action="…").
-    deadline: '2026-10-29',
-  },
-
   design: {
     // true = Design-Panel (Farben & Schriften testen) ist für alle sichtbar.
     // false = Besucher sehen es nicht; das Orga-Team öffnet die Seite einmal

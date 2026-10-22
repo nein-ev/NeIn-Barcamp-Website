@@ -1,6 +1,6 @@
 # NeIn-Barcamp 2026
 
-Website zum Barcamp am **Donnerstag, 5. November 2026**: Rahmeninfos, Ablauf, Essensbuchung –
+Website zum Barcamp am **Donnerstag, 5. November 2026**: Rahmeninfos und Ablauf –
 und am Barcamp-Tag selbst Sessionplan und ein Pad pro Session.
 
 Reines HTML/CSS/JavaScript ohne Build-Schritt. Läuft direkt auf GitHub Pages.
@@ -71,14 +71,14 @@ Wer später eine Palette ändert oder ergänzt, prüft die Kontraste mit `node t
 
 Mit **„Platzhalter markieren“** im Design-Panel seht ihr alle Stellen. Im Einzelnen:
 
-- **`index.html`**: Uhrzeiten, Teilnahmekosten, Kostenbeitrag fürs Essen, Zeitplan im Abschnitt „Ablauf“
+- **`index.html`**: Uhrzeiten, Teilnahmekosten, Zeitplan im Abschnitt „Ablauf“
   (Ort steht fest: Johanna-Moosdorf-Schule, Philipp-Rosenthal-Straße 61–63, 04103 Leipzig)
 - **`impressum.html`**: Vereinsname, Anschrift, Vorstand, Kontakt, Vereinsregister
 - **`datenschutz.html`**: Entwurf, der beschreibt, was die Seite technisch tut – bitte vom Verein prüfen lassen
 - **Titelfoto**: Bild als `assets/img/titelbild.jpg` ablegen (Querformat, ca. 1600 × 1200 px).
   Es ersetzt automatisch die Illustration im Kopfbereich.
 
-Die Seite spricht Besucher mit „ihr“ bzw. im Formular mit „du“ an.
+Die Seite spricht Besucher mit „ihr“ an.
 
 ---
 
@@ -94,29 +94,14 @@ Unterzeile sind echter Text. Dadurch übernimmt das Logo automatisch die Farben 
 
 ---
 
-## Essensbuchung
-
-Das Formular schickt die Buchung über den kostenlosen Dienst [FormSubmit](https://formsubmit.co)
-per E-Mail an **hanstydecks.tea@gmail.com**. Wer bucht, bekommt automatisch eine Bestätigung.
-
-- **Einmalig aktivieren:** Beim allerersten Absenden schickt FormSubmit eine Mail „Activate Form“ an die
-  Adresse. Erst nach dem Klick auf den Link kommen Buchungen an. Am besten jetzt einmal selbst testen.
-- **Adresse verbergen (empfohlen):** Nach der Aktivierung nennt FormSubmit eine zufällige Zeichenfolge.
-  Damit in `index.html` im `<form action="https://formsubmit.co/hanstydecks.tea@gmail.com">` die
-  Mailadresse ersetzen, dann landet sie nicht mehr bei Spam-Bots.
-- **Anmeldeschluss:** `meal.deadline` in `config.js` (aktuell 29.10.2026). Danach schließt sich das Formular automatisch,
-  und der Knopf „Mittagessen buchen“ oben sowie der Menüpunkt „Essen“ verschwinden.
-
----
-
 ## Die drei Phasen der Seite
 
 Die Seite stellt sich nach dem Datum (deutsche Zeit) selbst um – niemand muss etwas umschalten:
 
 | Zeitraum | Seite |
 |---|---|
-| bis 4.11.2026 | **Vorbereitung**: Countdown, Infos, Barcamp-Format, Ablauf, Essensbuchung (bis Anmeldeschluss) |
-| 5.11.2026, ab 0:00 Uhr | **Barcamp-Tag**: Sessionplan und Pads ganz oben, Essensbuchung weg, Infos darunter |
+| bis 4.11.2026 | **Vorbereitung**: Countdown, Infos, Barcamp-Format, Ablauf |
+| 5.11.2026, ab 0:00 Uhr | **Barcamp-Tag**: Sessionplan und Pads ganz oben, Infos darunter |
 | ab 6.11.2026 | **Rückblick**: „Danke fürs Mitmachen“, Sessionplan und Pads zum Nachlesen, Knopf „Feedback geben“ (öffnet das Feedback-Pad). Infos, Format und Ablauf sind ausgeblendet. |
 
 ## Am Barcamp-Tag
@@ -169,8 +154,8 @@ impressum.html           Impressum
 datenschutz.html         Datenschutzerklärung (Entwurf)
 sessions.md              Sessionplan – wird am Tag live bearbeitet
 sessions.beispiel.md     Beispiel für die Vorschau
-assets/js/config.js      ← alle Einstellungen (Datum, Pads, Anmeldeschluss, Design)
-assets/js/main.js        Seitenlogik (Phasen, Formular, Sessionplan, Pads)
+assets/js/config.js      ← alle Einstellungen (Datum, Pads, Design)
+assets/js/main.js        Seitenlogik (Phasen, Sessionplan, Pads)
 assets/js/markdown.js    kleiner Markdown-Renderer für den Sessionplan
 assets/js/design-panel.js + assets/css/design-panel.css   Design-Werkstatt (nur Vorbereitung)
 assets/css/themes.css    die 7 Farbpaletten

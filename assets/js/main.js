@@ -2,7 +2,6 @@
    NeIn-Barcamp – Seitenlogik
    · Phasen: vor dem Barcamp / Barcamp-Tag (live) / danach
    · Countdown, Navigation
-   · Essensbuchung über FormSubmit (Formular-Adresse steht in index.html)
    · Sessionplan aus sessions.md (lädt sich selbst neu, Beamer-Ansicht)
    · Pads (yopad.eu) als eingebettetes Fenster, ein Pad pro Session
    ========================================================================== */
@@ -13,7 +12,6 @@
   var EVENT = CFG.event || {};
   var LIVE = CFG.live || {};
   var PADS = CFG.pads || {};
-  var MEAL = CFG.meal || {};
   var TZ = EVENT.timeZone || 'Europe/Berlin';
   var root = document.documentElement;
 
@@ -57,11 +55,6 @@
   function daysUntil(iso) {
     return Math.round((isoToUTC(iso) - isoToUTC(todayISO())) / 864e5);
   }
-  function formatDate(iso, withYear) {
-    var opts = { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' };
-    if (withYear) opts.year = 'numeric';
-    return new Intl.DateTimeFormat('de-DE', opts).format(new Date(isoToUTC(iso)));
-  }
   function clock(date) {
     return new Intl.DateTimeFormat('de-DE', { timeZone: TZ, hour: '2-digit', minute: '2-digit' }).format(date || new Date());
   }
@@ -98,7 +91,6 @@
     });
 
     updateCountdown();
-    updateMeal();
     if (phase === 'live' || phase === 'after') startLive(); else stopLive();
     if (changed) observeSections();
   }
@@ -181,158 +173,6 @@
       document.head.appendChild(meta);
     }
     meta.content = cs.getPropertyValue('--hero-bg').trim();
-  }
-
-  // ---------------------------------------------------------------- Essensbuchung
-
-  var meal = {};
-
-  function updateMeal() {
-    if (!meal.form) return;
-    var closed = phase !== 'before' || (MEAL.deadline && todayISO() > MEAL.deadline);
-    root.setAttribute('data-meal', closed ? 'closed' : 'open');
-    meal.form.hidden = closed || meal.done;
-    meal.doneBox.hidden = closed || !meal.done;
-    meal.closedBox.hidden = !closed;
-  }
-
-  function fieldError(input, errorEl, message) {
-    var target = input.closest('fieldset') || input;
-    if (message) {
-      target.setAttribute('aria-invalid', 'true');
-      if (target === input) input.setAttribute('aria-describedby', ((input.getAttribute('aria-describedby') || '').replace(errorEl.id, '') + ' ' + errorEl.id).trim());
-    } else {
-      target.removeAttribute('aria-invalid');
-    }
-    errorEl.textContent = message || '';
-    return !message;
-  }
-
-  function validateMeal() {
-    var f = meal.form;
-    var name = f.elements.Name;
-    var email = f.elements.email;
-    var privacy = f.elements.Datenschutz;
-
-    var results = [
-      [name, fieldError(name, $('#f-name-error'), name.value.trim() ? '' : 'Bitte gib deinen Namen an.')],
-      [email, fieldError(email, $('#f-email-error'),
-        !email.value.trim() ? 'Bitte gib deine E-Mail-Adresse an.' :
-        !email.checkValidity() ? 'Diese E-Mail-Adresse sieht nicht ganz richtig aus.' : '')],
-      [privacy, fieldError(privacy, $('#f-privacy-error'), privacy.checked ? '' : 'Bitte stimme der Verarbeitung deiner Angaben zu.')],
-    ];
-    var firstInvalid = results.filter(function (r) { return !r[1]; })[0];
-    if (firstInvalid) firstInvalid[0].focus();
-    return !firstInvalid;
-  }
-
-  function recipient() {
-    try { return decodeURIComponent(new URL(meal.form.action).pathname.split('/').pop()); } catch (e) { return ''; }
-  }
-
-  function showMealError(message, data) {
-    var addr = recipient();
-    var lines = Object.keys(data).filter(function (k) { return k.charAt(0) !== '_'; })
-      .map(function (k) { return k + ': ' + data[k]; }).join('\n');
-    var mailto = addr.indexOf('@') !== -1
-      ? ' Alternativ schickt eure Buchung per <a href="mailto:' + addr + '?subject=' +
-        encodeURIComponent('Essensbuchung NeIn-Barcamp') + '&body=' + encodeURIComponent(lines) + '">E-Mail</a>.'
-      : '';
-    meal.status.className = 'form__status is-error';
-    meal.status.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg><span>' + message + mailto + '</span>';
-  }
-
-  function setMealLoading(on) {
-    meal.submit.disabled = on;
-    meal.submit.classList.toggle('is-loading', on);
-    meal.submit.querySelector('.btn__label').textContent = on ? 'Wird gesendet …' : 'Mittagessen verbindlich buchen';
-  }
-
-  function initMeal() {
-    meal.form = $('#meal-form');
-    if (!meal.form) return;
-    meal.form.noValidate = true;
-    meal.doneBox = $('#meal-done');
-    meal.closedBox = $('#meal-closed');
-    meal.status = $('#meal-status');
-    meal.submit = $('#meal-submit');
-    meal.done = false;
-
-    $$('[data-deadline-text]').forEach(function (el) {
-      if (MEAL.deadline) el.textContent = formatDate(MEAL.deadline, el.getAttribute('data-deadline-text') === 'long');
-    });
-
-    if (getItem('localStorage', 'nein-meal-booked')) $('#meal-repeat').hidden = false;
-
-    // Fehlermeldung verschwindet, sobald korrigiert wird
-    meal.form.addEventListener('input', function (e) {
-      var el = e.target;
-      var target = el.closest('fieldset') || el;
-      if (target.getAttribute('aria-invalid') === 'true') {
-        target.removeAttribute('aria-invalid');
-        var err = target.querySelector ? target.querySelector('.field__error') : null;
-        var errEl = err || (el.parentElement && el.parentElement.querySelector('.field__error'));
-        if (errEl) errEl.textContent = '';
-      }
-    });
-
-    meal.form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      meal.status.textContent = '';
-      meal.status.className = 'form__status';
-      if (!validateMeal()) return;
-
-      var data = {};
-      new FormData(meal.form).forEach(function (value, key) { data[key] = typeof value === 'string' ? value.trim() : value; });
-      if (data._honey) return; // Spam-Bot
-      data._subject = 'Essensbuchung NeIn-Barcamp: ' + data.Name;
-
-      var url;
-      try {
-        url = new URL(meal.form.action);
-        if (url.pathname.indexOf('/ajax/') !== 0) url.pathname = '/ajax' + url.pathname;
-      } catch (err) {
-        showMealError('Das Formular ist nicht richtig eingerichtet.', data);
-        return;
-      }
-
-      setMealLoading(true);
-      fetch(url.toString(), {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(data),
-      })
-        .then(function (res) {
-          return res.json().catch(function () { return {}; }).then(function (json) {
-            if (!res.ok || String(json.success) !== 'true') {
-              var msg = json.message || ('Fehler ' + res.status);
-              if (/activat/i.test(msg)) msg = 'Das Formular muss vom Orga-Team einmalig aktiviert werden (Aktivierungs-Mail im Postfach). Bitte versucht es später noch einmal.';
-              throw new Error(msg);
-            }
-          });
-        })
-        .then(function () {
-          setItem('localStorage', 'nein-meal-booked', '1');
-          meal.done = true;
-          $('#meal-done-name').textContent = data.Name.split(' ')[0];
-          $('#meal-done-mail').textContent = data.email;
-          updateMeal();
-          meal.doneBox.focus();
-        })
-        .catch(function (err) {
-          var reason = err && err.message && !/fetch|network/i.test(err.message) ? ' (' + err.message + ')' : '';
-          showMealError('Das hat leider nicht geklappt' + reason + '. Bitte versucht es gleich noch einmal.', data);
-        })
-        .then(function () { setMealLoading(false); });
-    });
-
-    $('#meal-again').addEventListener('click', function () {
-      meal.form.reset();
-      meal.done = false;
-      $('#meal-repeat').hidden = false;
-      updateMeal();
-      meal.form.elements.Name.focus();
-    });
   }
 
   // ---------------------------------------------------------------- Sessionplan
@@ -735,7 +575,6 @@
 
   function init() {
     if ($('.nav-toggle')) initNav();
-    initMeal();
     if ($('#board')) initBoardControls();
     applyPhase();
     updateBrandAssets();

@@ -10,7 +10,6 @@
   --radius-lg: 22px;
   --header-h: 68px;
   --error: #b42318;
-  --error-bg: #fdecea;
   --success: #146c2e;
   --success-bg: #e7f6ea;
   --shadow-sm: 0 1px 2px color-mix(in srgb, var(--ink) 8%, transparent);
@@ -614,9 +613,6 @@ code {
 
 [data-phase="after"] .nav-live .live-dot { display: none; }
 
-/* Essensbuchung offen / nach Anmeldeschluss */
-[data-meal="closed"] [data-meal-only="open"],
-[data-meal="open"] [data-meal-only="closed"] { display: none !important; }
 
 /* ---------------------------------------------------------------- Abschnitte */
 
@@ -656,11 +652,10 @@ code {
   gap: clamp(40px, 6vw, 88px);
   align-items: start;
 }
-.split--form { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
 .split__text > p:not(.eyebrow):not(.section-lead) { max-width: 36em; }
 
 @media (max-width: 900px) {
-  .split, .split--form { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; }
 }
 
 /* ---------------------------------------------------------------- Fakten */
@@ -670,8 +665,17 @@ code {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
-@media (max-width: 980px) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 620px) { .facts { grid-template-columns: 1fr; } }
+/* Letzte Karte füllt eine angebrochene Reihe auf */
+.fact:last-child:nth-child(3n + 2) { grid-column: span 2; }
+@media (max-width: 980px) {
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fact:last-child:nth-child(3n + 2) { grid-column: auto; }
+  .fact:last-child:nth-child(odd) { grid-column: span 2; }
+}
+@media (max-width: 620px) {
+  .facts { grid-template-columns: 1fr; }
+  .fact:last-child:nth-child(odd) { grid-column: auto; }
+}
 
 .fact {
   position: relative;
@@ -897,130 +901,6 @@ code {
 .sticky-note li { margin-bottom: 6px; }
 .sticky-note p:last-child { margin: 0; font-weight: 600; }
 @media (max-width: 900px) { .sticky-note { position: relative; top: 0; max-width: 520px; } }
-
-/* ---------------------------------------------------------------- Essen */
-
-.info-list { margin: 28px 0 22px; }
-.info-list > div {
-  display: grid;
-  grid-template-columns: 9.5rem minmax(0, 1fr);
-  gap: 16px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--line);
-}
-.info-list > div:first-child { border-top: 1px solid var(--line); }
-.info-list dt {
-  padding-top: 0.15em;
-  font-family: var(--font-mono);
-  font-variation-settings: var(--mono-fvs);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-}
-.info-list dd { margin: 0; font-weight: 600; }
-@media (max-width: 480px) {
-  .info-list > div { grid-template-columns: 1fr; gap: 2px; }
-}
-
-.form-card {
-  position: relative;
-  padding: clamp(24px, 4vw, 40px);
-  border: 1px solid var(--line);
-  border-radius: 24px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
-}
-
-.form { display: grid; gap: 20px; }
-.field { display: grid; gap: 7px; margin: 0; padding: 0; border: 0; min-width: 0; }
-.field label,
-.field legend { font-weight: 650; font-size: 0.98rem; }
-.field legend { padding: 0; margin-bottom: 7px; }
-.req { color: var(--brand-ink); }
-.optional { font-weight: 400; color: var(--ink-muted); }
-.field__hint { margin: 0; font-size: 0.88rem; color: var(--ink-muted); }
-.field__error { margin: 0; font-size: 0.88rem; font-weight: 600; color: var(--error); }
-.field__error:empty { display: none; }
-
-.form input[type="text"],
-.form input[type="email"],
-.form textarea {
-  width: 100%;
-  padding: 12px 14px;
-  border: 1.5px solid color-mix(in srgb, var(--ink) 38%, var(--surface));
-  border-radius: 12px;
-  background: var(--surface);
-  color: var(--ink);
-  font: inherit;
-  font-size: 1rem;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
-}
-.form textarea { resize: vertical; min-height: 92px; }
-.form input::placeholder,
-.form textarea::placeholder { color: color-mix(in srgb, var(--ink-muted) 80%, transparent); }
-.form input:focus,
-.form textarea:focus {
-  outline: none;
-  border-color: var(--focus);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 25%, transparent);
-}
-.form [aria-invalid="true"] { border-color: var(--error) !important; }
-
-
-.field--check { grid-template-columns: 22px minmax(0, 1fr); align-items: start; column-gap: 12px; }
-.field--check input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--brand); }
-.field--check label { font-weight: 400; font-size: 0.94rem; line-height: 1.5; }
-.field--check .field__error { grid-column: 2; }
-
-.form__status:empty { display: none; }
-.form__status,
-.form__note {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  margin: 0;
-  padding: 12px 14px;
-  border-radius: 12px;
-  font-size: 0.94rem;
-  line-height: 1.45;
-}
-.form__status .icon,
-.form__note .icon { margin-top: 1px; }
-.form__status.is-error { background: var(--error-bg); color: var(--error); }
-.form__note--info { background: color-mix(in srgb, var(--brand) 8%, var(--surface)); color: var(--ink); }
-.form__fineprint { margin: -8px 0 0; font-size: 0.85rem; color: var(--ink-muted); text-align: center; }
-
-.spinner {
-  display: none;
-  width: 1.1em;
-  height: 1.1em;
-  border-radius: 50%;
-  border: 2.5px solid currentColor;
-  border-right-color: transparent;
-  animation: spin 0.7s linear infinite;
-}
-.is-loading .spinner { display: inline-block; }
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.form-done,
-.form-closed { text-align: center; padding: 24px 8px; }
-.form-done:focus { outline: none; }
-.form-done h3,
-.form-closed h3 { margin: 18px 0 10px; font-size: 1.6rem; }
-.form-done p,
-.form-closed p { margin: 0 auto 22px; max-width: 30em; color: var(--ink-muted); }
-.form-done__icon {
-  display: inline-grid;
-  place-items: center;
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: var(--on-accent);
-}
-.form-done__icon--muted { background: var(--bg-alt); color: var(--ink-muted); }
 
 /* ---------------------------------------------------------------- Vereins-Band */
 
