@@ -73,8 +73,7 @@ Mit **„Platzhalter markieren“** im Design-Panel seht ihr alle Stellen. Im Ei
 
 - **`index.html`**: Uhrzeiten, Teilnahmekosten, Zeitplan im Abschnitt „Ablauf“
   (Ort steht fest: Johanna-Moosdorf-Schule, Philipp-Rosenthal-Straße 61–63, 04103 Leipzig)
-- **`impressum.html`**: Vereinsname, Anschrift, Vorstand, Kontakt, Vereinsregister
-- **`datenschutz.html`**: Entwurf, der beschreibt, was die Seite technisch tut – bitte vom Verein prüfen lassen
+- **Impressum und Datenschutz** verlinken auf `https://neueinformatik.de/impressum` bzw. `https://neueinformatik.de/datenschutz` (Footer in `index.html`). Die Texte werden dort gepflegt, nicht im Repo.
 - **Titelfoto**: Bild als `assets/img/titelbild.jpg` ablegen (Querformat, ca. 1600 × 1200 px).
   Es ersetzt automatisch die Illustration im Kopfbereich.
 
@@ -150,8 +149,6 @@ Einstellbar in `config.js` unter `pads.sessionPads` (Präfix, Endung, an/aus).
 
 ```
 index.html               Hauptseite
-impressum.html           Impressum
-datenschutz.html         Datenschutzerklärung (Entwurf)
 sessions.md              Sessionplan – wird am Tag live bearbeitet
 sessions.beispiel.md     Beispiel für die Vorschau
 assets/js/config.js      ← alle Einstellungen (Datum, Pads, Design)
