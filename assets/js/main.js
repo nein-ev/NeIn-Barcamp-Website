@@ -217,7 +217,7 @@
 
   // ---------------------------------------------------------------- Ein Pad pro Session
   // Jede ausgefüllte Zelle bekommt automatisch ein Pad, benannt nach Uhrzeit und Raum:
-  // 10:15 in „Raum A (Aula)“ → https://yopad.eu/p/NeIn-Barcamp-2026-1015-Raum-A-Aula-365days
+  // 10:45 in „Raum A (Aula)“ → https://yopad.eu/p/NeIn-Barcamp-2026-1045-Raum-A-Aula-365days
 
   function slug(text) {
     return String(text)

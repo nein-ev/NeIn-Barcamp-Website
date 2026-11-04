@@ -32,7 +32,7 @@ window.BARCAMP_CONFIG = {
     hosts: ['yopad.eu'],
     // Jede Session im Sessionplan bekommt automatisch ein eigenes Pad.
     // Adresse: base + prefix + '-' + Uhrzeit + '-' + Raum + suffix, z. B.
-    //   https://yopad.eu/p/NeIn-Barcamp-2026-1015-Raum-A-365days
+    //   https://yopad.eu/p/NeIn-Barcamp-2026-1045-Raum-A-365days
     // („365days“ = das Pad bleibt bei yopad.eu ein Jahr lang erhalten.)
     // Steht in einer Zelle schon ein Link, wird dieser verwendet.
     sessionPads: {

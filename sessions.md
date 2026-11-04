@@ -4,14 +4,14 @@
   So geht's (z. B. direkt auf github.com: Datei öffnen → Stift-Symbol → „Commit changes“):
 
   • Jede Zeile der Tabelle ist ein Zeitfenster, jede Spalte ein Raum.
-  • Die erste Spalte enthält die Uhrzeit (z. B. 10:15 – 11:00). Die laufende Runde
+  • Die erste Spalte enthält die Uhrzeit (z. B. 10:45 – 11:30). Die laufende Runde
     wird auf der Seite automatisch als „Jetzt“ markiert, die nächste als „Gleich“.
   • Pads entstehen automatisch: Jedes eingetragene Thema wird auf der Seite mit einem
     eigenen Pad verlinkt, benannt nach Uhrzeit und Raum, z. B.
-    10:15 in „Raum A“ → https://yopad.eu/p/NeIn-Barcamp-2026-1015-Raum-A-365days
+    10:45 in „Raum A“ → https://yopad.eu/p/NeIn-Barcamp-2026-1045-Raum-A-365days
     Wichtig: Wird eine Session nachträglich verschoben, wandert der Link mit der Zelle mit.
     Soll ein bestimmtes Pad fest bleiben, den Link selbst eintragen:
-    [Python im Anfangsunterricht](https://yopad.eu/p/NeIn-Barcamp-2026-1015-Raum-A-365days)
+    [Python im Anfangsunterricht](https://yopad.eu/p/NeIn-Barcamp-2026-1045-Raum-A-365days)
   • Zweite Zeile in einer Zelle:  **Thema**<br>_Workshop · Anna_
   • Noch leer?  Einfach · oder – eintragen.
   • Text außerhalb der Tabelle (Absätze, Überschriften, Listen) wird ebenfalls angezeigt.
@@ -21,11 +21,11 @@
   Diese Kommentare (zwischen den Pfeil-Klammern) sind auf der Seite unsichtbar.
 -->
 
-**Die Sessionplanung beginnt um 9:30 Uhr** – hier erscheinen die Themen, sobald sie verteilt sind.
+**Die Sessionplanung beginnt um 9:40 Uhr** – hier erscheinen die Themen, sobald sie verteilt sind.
 
 | Zeit          | Raum A | Raum B | Raum C | Raum D |
 | ------------- | ------ | ------ | ------ | ------ |
-| 10:15 – 11:00 | ·      | ·      | ·      | ·      |
-| 11:15 – 12:00 | ·      | ·      | ·      | ·      |
-| 12:30 – 13:00 | _Mittagessen_ | | | |
-| 13:00 – 13:45 | ·      | ·      | ·      | ·      |
+| 10:45 – 11:30 | ·      | ·      | ·      | ·      |
+| 11:45 – 12:30 | ·      | ·      | ·      | ·      |
+| 12:30 – 13:30 | _Mittagessen_ | | | |
+| 13:30 – 14:15 | ·      | ·      | ·      | ·      |

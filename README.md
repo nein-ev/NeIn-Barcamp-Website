@@ -114,8 +114,8 @@ Plan jede Minute von selbst neu. Niemand muss etwas neu laden.
 ```markdown
 | Zeit          | Raum A | Raum B | Raum C |
 | ------------- | ------ | ------ | ------ |
-| 10:15 – 11:00 | Python im Anfangsunterricht<br>_Workshop_ | KI & Schule | · |
-| 12:30 – 13:00 | _Mittagessen_ | | |
+| 10:45 – 11:30 | Python im Anfangsunterricht<br>_Workshop_ | KI & Schule | · |
+| 12:30 – 13:30 | _Mittagessen_ | | |
 ```
 
 - Erste Spalte = Uhrzeit. Die laufende Runde wird als **„Jetzt“** markiert, die nächste als **„Gleich“**.
@@ -130,15 +130,15 @@ die Seite verlinkt es selbst. Der Pad-Name ergibt sich aus Uhrzeit und Raum:
 
 | Zelle im Sessionplan | Pad |
 |---|---|
-| 10:15, Spalte „Raum A“ | `https://yopad.eu/p/NeIn-Barcamp-2026-1015-Raum-A-365days` |
-| 13:00, Spalte „Raum D (Informatikraum)“ | `https://yopad.eu/p/NeIn-Barcamp-2026-1300-Raum-D-Informatikraum-365days` |
+| 10:45, Spalte „Raum A“ | `https://yopad.eu/p/NeIn-Barcamp-2026-1045-Raum-A-365days` |
+| 13:30, Spalte „Raum D (Informatikraum)“ | `https://yopad.eu/p/NeIn-Barcamp-2026-1330-Raum-D-Informatikraum-365days` |
 
 yopad.eu legt das Pad beim ersten Aufruf selbst an; `-365days` heißt, es bleibt ein Jahr erhalten.
 Einstellbar in `config.js` unter `pads.sessionPads` (Präfix, Endung, an/aus).
 
 - Wird eine Session nachträglich in einen anderen Raum oder Slot verschoben, zeigt die Zelle auf das Pad
   des neuen Platzes. Soll ein Pad fest an einer Session hängen, den Link selbst in die Zelle schreiben:
-  `[Python im Anfangsunterricht](https://yopad.eu/p/NeIn-Barcamp-2026-1015-Raum-A-365days)`.
+  `[Python im Anfangsunterricht](https://yopad.eu/p/NeIn-Barcamp-2026-1045-Raum-A-365days)`.
 - Allgemeine Pads (Ideen, Links, Feedback) stehen in `config.js` unter `pads.list`.
 - Pads werden erst nach einem Klick auf „Pads anzeigen“ eingebettet (datenschutzfreundlich).
   Jedes Pad lässt sich auch „In neuem Tab öffnen“, falls yopad.eu das Einbetten blockiert – bitte vorher testen.
