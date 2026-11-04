@@ -115,7 +115,7 @@ Plan jede Minute von selbst neu. Niemand muss etwas neu laden.
 | Zeit          | Raum A | Raum B | Raum C |
 | ------------- | ------ | ------ | ------ |
 | 10:15 – 11:00 | Python im Anfangsunterricht<br>_Workshop_ | KI & Schule | · |
-| 12:00 – 13:00 | _Mittagessen_ | | |
+| 12:30 – 13:00 | _Mittagessen_ | | |
 ```
 
 - Erste Spalte = Uhrzeit. Die laufende Runde wird als **„Jetzt“** markiert, die nächste als **„Gleich“**.
