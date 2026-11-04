@@ -23,9 +23,9 @@
 
 **Die Sessionplanung beginnt um 9:40 Uhr** – hier erscheinen die Themen, sobald sie verteilt sind.
 
-| Zeit          | Raum A | Raum B | Raum C | Raum D |
-| ------------- | ------ | ------ | ------ | ------ |
-| 10:45 – 11:30 | ·      | ·      | ·      | ·      |
-| 11:45 – 12:30 | ·      | ·      | ·      | ·      |
-| 12:30 – 13:30 | _Mittagessen_ | | | |
-| 13:30 – 14:15 | ·      | ·      | ·      | ·      |
+| Zeit          | Raum A | Raum B | Raum C | Raum D | Raum E | Raum F | Raum G | Raum H |
+| ------------- | ------ | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
+| 10:45 – 11:30 | · | · | · | · | · | · | · | · |
+| 11:45 – 12:30 | · | · | · | · | · | · | · | · |
+| 12:30 – 13:30 | _Mittagessen_ | | | | | | | |
+| 13:30 – 14:15 | · | · | · | · | · | · | · | · |
