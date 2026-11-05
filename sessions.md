@@ -26,6 +26,6 @@
 | Zeit          | Raum E | Raum A | Raum B | Raum C | Raum F | Raum G | Raum H |
 | ------------- | ------ | ------ | ------ | ------ | ------ | ------ | ------ |
 | 10:45 – 11:30 | Co-Kreation und Aufbereitung mit KI als Agent| Start von Digitalisierung? | Digitale Schulentwicklung fördern | Lernstraße Theorie auslagern | KI-Korrektur? | KI-Ethik, Basiswissen KI | Schüler-Aktivitäten kontrollieren (Apple vs.Android) |
-| 11:45 – 12:30 | Leitfäden aus Richtlinien | Entwicklung Medienbildung im Kollegium | Aktivierung Kollegium KI, Digitalisierung -> FAQ | Unterrichtsmaterial des Biber-WB | Digitale Lernpfade differenziert und barrierefrei | KI als Lernpartner + Lernspiele (auch in Englisch) | Medienscouts vom MPZ, Austausch |
+| 11:45 – 12:30 | Leitfäden aus Richtlinien | Entwicklung Medienbildung im Kollegium | Aktivierung Kollegium KI, Digitalisierung -> FAQ | Unterrichts-material des Biber-WB | Digitale Lernpfade differenziert und barrierefrei | KI als Lernpartner + Lernspiele (auch in Englisch) | Medienscouts vom MPZ, Austausch |
 | 12:30 – 13:30 | _Mittagessen_ | | | | | | |
 | 13:30 – 14:15 | KI-Führerschein | Digitales Lehrerzimmer der Zukunft | KI in Planung, Organisation, Evaluation | Kritischer Umgang mit KI, reflektieren, Fehler aufdecken | Lernspiele erstellen 7-10 Info | Tool TaskCards iPads nutzen, Werkstatt | Medienpass, Diskussion |
