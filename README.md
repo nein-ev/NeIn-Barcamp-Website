@@ -101,7 +101,7 @@ Die Seite stellt sich nach dem Datum (deutsche Zeit) selbst um – niemand muss 
 |---|---|
 | bis 4.11.2026 | **Vorbereitung**: Countdown, Infos, Barcamp-Format, Ablauf |
 | 5.11.2026, ab 0:00 Uhr | **Barcamp-Tag**: Sessionplan und Pads ganz oben, Infos darunter |
-| ab 6.11.2026 | **Rückblick**: „Danke fürs Mitmachen“, Sessionplan und Pads zum Nachlesen, Knopf „Feedback geben“ (öffnet das Feedback-Pad). Infos, Format und Ablauf sind ausgeblendet. |
+| ab 6.11.2026 | **Rückblick**: „Danke fürs Mitmachen“, Sessionplan und Pads zum Nachlesen. Infos, Format und Ablauf sind ausgeblendet. |
 
 ## Am Barcamp-Tag
 
@@ -120,7 +120,7 @@ Plan jede Minute von selbst neu. Niemand muss etwas neu laden.
 
 - Erste Spalte = Uhrzeit. Die laufende Runde wird als **„Jetzt“** markiert, die nächste als **„Gleich“**.
 - Ist nur die erste Raumspalte gefüllt (z. B. „Mittagessen“), läuft der Eintrag über alle Räume.
-- Jedes Thema wird automatisch mit seinem Pad verlinkt und öffnet es per Klick direkt auf der Seite.
+- Jedes Thema wird automatisch mit seinem Pad verlinkt und öffnet es per Klick in einem neuen Tab.
 - **Beamer-Ansicht**: Knopf über dem Plan. Zeigt den Plan bildschirmfüllend mit Uhr, z. B. für den Eingangsbereich.
 
 ### Pads (yopad.eu)
@@ -139,9 +139,6 @@ Einstellbar in `config.js` unter `pads.sessionPads` (Präfix, Endung, an/aus).
 - Wird eine Session nachträglich in einen anderen Raum oder Slot verschoben, zeigt die Zelle auf das Pad
   des neuen Platzes. Soll ein Pad fest an einer Session hängen, den Link selbst in die Zelle schreiben:
   `[Python im Anfangsunterricht](https://yopad.eu/p/NeIn-Barcamp-2026-1045-Raum-A-365days)`.
-- Allgemeine Pads (Ideen, Links, Feedback) stehen in `config.js` unter `pads.list`.
-- Pads werden erst nach einem Klick auf „Pads anzeigen“ eingebettet (datenschutzfreundlich).
-  Jedes Pad lässt sich auch „In neuem Tab öffnen“, falls yopad.eu das Einbetten blockiert – bitte vorher testen.
 
 ---
 

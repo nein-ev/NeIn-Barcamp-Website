@@ -77,7 +77,6 @@
       <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
         <ul>
           <li data-phases="live after" hidden><a class="nav-live" href="#live"><span class="live-dot" aria-hidden="true"></span><span data-phases="live">Live</span><span data-phases="after" hidden>Rückblick</span></a></li>
-          <li data-phases="live after" hidden><a href="#pads">Pads</a></li>
           <li data-phases="before live"><a href="#infos">Infos</a></li>
           <li data-phases="before live"><a href="#barcamp">Barcamp</a></li>
           <li data-phases="before live"><a href="#ablauf">Ablauf</a></li>
@@ -310,7 +309,6 @@
           <div class="hero__actions">
             <a class="btn btn--hero" href="#live" data-phases="live" hidden>Zum Sessionplan <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             <a class="btn btn--hero" href="#live" data-phases="after" hidden>Sessions &amp; Pads nachlesen <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="btn btn--hero-ghost" href="#pads" data-phases="after" data-open-pad="Feedback" hidden>Feedback geben</a>
             <a class="btn btn--hero-ghost" href="#barcamp" data-phases="before live">Was ist ein Barcamp?</a>
           </div>
         </div>
@@ -404,38 +402,7 @@
             <p class="board__status">Sessionplan wird geladen …</p>
           </div>
         </div>
-        <p class="board__hint">Tipp: Jede Session hat ihr eigenes Pad – klickt auf das Thema, um die Mitschrift direkt hier zu öffnen.</p>
-
-        <div class="pads" id="pads">
-          <div class="pads__head">
-            <h3 class="pads__title"><svg class="icon" aria-hidden="true"><use href="#i-pad"/></svg>Pads – gemeinsam dokumentieren</h3>
-            <p data-phases="live">Schreibt mit, ergänzt Links und haltet Ergebnisse fest. Alle Pads sind für alle Teilnehmenden offen – auch nach dem Barcamp.</p>
-            <p data-phases="after" hidden>Alle Mitschriften bleiben ein Jahr lang auf yopad.eu erhalten. Ergänzungen sind weiterhin willkommen.</p>
-          </div>
-
-          <div class="pads__tabs" id="pad-tabs" role="tablist" aria-label="Pads"></div>
-
-          <div class="pads__viewer" id="pad-viewer">
-            <div class="pads__bar">
-              <div class="pads__info">
-                <strong id="pad-name">–</strong>
-                <span id="pad-desc"></span>
-              </div>
-              <div class="pads__actions">
-                <a class="btn btn--primary btn--sm" id="pad-open" href="#" target="_blank" rel="noopener">In neuem Tab öffnen <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
-                <button class="btn btn--ghost btn--sm" type="button" id="pad-full"><svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg>Groß</button>
-              </div>
-            </div>
-            <div class="pads__frame" id="pad-frame">
-              <div class="pads__consent" id="pad-consent">
-                <svg class="icon icon--lg" aria-hidden="true"><use href="#i-pad"/></svg>
-                <p><strong>Pad hier auf der Seite anzeigen?</strong><br>
-                Dabei wird eine Verbindung zum Pad-Anbieter <span id="pad-host">yopad.eu</span> aufgebaut.</p>
-                <button class="btn btn--primary" type="button" id="pad-consent-btn">Pads anzeigen</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p class="board__hint">Tipp: Jede Session hat ihr eigenes Pad – klickt auf das Thema, dann öffnet sich das Pad in einem neuen Tab.</p>
       </div>
     </section>
 

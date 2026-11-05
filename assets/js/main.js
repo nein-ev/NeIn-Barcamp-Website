@@ -3,7 +3,7 @@
    · Phasen: vor dem Barcamp / Barcamp-Tag (live) / danach
    · Countdown, Navigation
    · Sessionplan aus sessions.md (lädt sich selbst neu, Beamer-Ansicht)
-   · Pads (yopad.eu) als eingebettetes Fenster, ein Pad pro Session
+   · Ein Pad (yopad.eu) pro Session, verlinkt direkt in der Tabelle
    ========================================================================== */
 (function () {
   'use strict';
@@ -290,7 +290,8 @@
       if (!isPadUrl(a.href)) return;
       padLinks++;
       a.classList.add('pad-link');
-      a.setAttribute('data-pad', '');
+      a.target = '_blank';
+      a.rel = 'noopener';
       glueIcon(a, '<svg class="icon" aria-hidden="true"><use href="#i-pad"/></svg>');
       a.setAttribute('aria-label', a.textContent.trim() + ' – Pad öffnen');
     });
@@ -401,15 +402,6 @@
       if (e.key === 'Escape' && $('#board').classList.contains('is-presenting')) setPresenting(false);
     });
 
-    // Klick auf ein Thema mit Pad → Pad im Fenster unten öffnen
-    $('#board-content').addEventListener('click', function (e) {
-      var a = e.target.closest('a[data-pad]');
-      if (!a || e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
-      e.preventDefault();
-      if ($('#board').classList.contains('is-presenting')) setPresenting(false);
-      openSessionPad(a.textContent.trim(), a.href);
-    });
-
     document.addEventListener('visibilitychange', function () {
       if (!document.hidden && board.started) loadBoard();
     });
@@ -419,7 +411,6 @@
     if (!$('#board')) return;
     if (!board.started) {
       board.started = true;
-      initPads();
     }
     var src = boardSource();
     if (src !== board.src || !board.loaded) loadBoard();
@@ -442,133 +433,6 @@
   function stopLive() {
     clearInterval(board.timer);
     clearInterval(board.tick);
-  }
-
-  // ---------------------------------------------------------------- Pads
-
-  var pads = { current: null, session: null, consent: false, ready: false };
-
-  function embedUrl(url) {
-    if (!PADS.embedParams) return url;
-    return url + (url.indexOf('?') === -1 ? '?' : '&') + PADS.embedParams;
-  }
-
-  function padList() {
-    var list = (PADS.list || []).slice();
-    if (pads.session) list.push(pads.session);
-    return list;
-  }
-
-  function renderPadTabs() {
-    var tabs = $('#pad-tabs');
-    tabs.innerHTML = '';
-    padList().forEach(function (pad, i) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'pad-tab' + (pad.session ? ' pad-tab--session' : '');
-      b.setAttribute('role', 'tab');
-      b.setAttribute('aria-controls', 'pad-viewer');
-      b.setAttribute('aria-selected', String(pad === pads.current));
-      b.tabIndex = pad === pads.current ? 0 : -1;
-      b.id = 'pad-tab-' + i;
-      b.innerHTML = '<span class="pad-tab__dot" aria-hidden="true"></span>';
-      b.appendChild(document.createTextNode(pad.title));
-      b.addEventListener('click', function () { selectPad(pad); });
-      tabs.appendChild(b);
-    });
-  }
-
-  function loadFrame() {
-    var frame = $('#pad-frame');
-    $('#pad-consent').hidden = true;
-    var iframe = $('iframe', frame);
-    if (!iframe) {
-      iframe = document.createElement('iframe');
-      iframe.setAttribute('allow', 'clipboard-read; clipboard-write');
-      frame.appendChild(iframe);
-    }
-    iframe.title = 'Pad: ' + pads.current.title;
-    iframe.src = embedUrl(pads.current.url);
-  }
-
-  function selectPad(pad) {
-    if (!pad) return;
-    pads.current = pad;
-    $('#pad-name').textContent = pad.title;
-    $('#pad-desc').textContent = pad.description || (pad.session ? 'Mitschrift zu dieser Session' : '');
-    $('#pad-open').href = pad.url;
-    try { $('#pad-host').textContent = new URL(pad.url).hostname; } catch (e) { /* egal */ }
-    renderPadTabs();
-
-    var viewer = $('#pad-viewer');
-    viewer.setAttribute('aria-labelledby', 'pad-tab-' + padList().indexOf(pad));
-    if (pads.consent || PADS.clickToLoad === false) {
-      loadFrame();
-    } else {
-      $('#pad-consent').hidden = false;
-      var old = $('#pad-frame iframe');
-      if (old) old.remove();
-    }
-  }
-
-  function openSessionPad(title, url) {
-    var id = decodeURIComponent(url.split('/p/').pop() || '');
-    pads.session = { title: title, url: url, session: true, description: id ? 'Pad: ' + id : '' };
-    selectPad(pads.session);
-    $('#pads').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  function setPadLarge(on) {
-    var viewer = $('#pad-viewer');
-    viewer.classList.toggle('is-large', on);
-    document.body.classList.toggle('is-pad-large', on);
-    var btn = $('#pad-full');
-    btn.innerHTML = on
-      ? '<svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>Verkleinern'
-      : '<svg class="icon" aria-hidden="true"><use href="#i-expand"/></svg>Groß';
-  }
-
-  function initPads() {
-    if (pads.ready) return;
-    pads.ready = true;
-    pads.consent = getItem('sessionStorage', 'nein-pad-consent') === '1';
-
-    $('#pad-consent-btn').addEventListener('click', function () {
-      pads.consent = true;
-      setItem('sessionStorage', 'nein-pad-consent', '1');
-      loadFrame();
-    });
-    $('#pad-full').addEventListener('click', function () {
-      setPadLarge(!$('#pad-viewer').classList.contains('is-large'));
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && $('#pad-viewer').classList.contains('is-large')) setPadLarge(false);
-    });
-    // Pfeiltasten in der Tab-Leiste
-    $('#pad-tabs').addEventListener('keydown', function (e) {
-      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-      var list = padList();
-      var i = list.indexOf(pads.current);
-      var next = list[(i + (e.key === 'ArrowRight' ? 1 : -1) + list.length) % list.length];
-      selectPad(next);
-      var tab = $('#pad-tab-' + list.indexOf(next));
-      if (tab) tab.focus();
-    });
-
-    if (padList().length) {
-      selectPad(padList()[0]);
-    } else {
-      $('#pad-viewer').hidden = true;
-    }
-
-    // Knöpfe wie „Feedback geben“ öffnen ein bestimmtes Pad aus der Liste
-    $$('[data-open-pad]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var name = btn.getAttribute('data-open-pad').toLowerCase();
-        var pad = (PADS.list || []).filter(function (p) { return p.title.toLowerCase().indexOf(name) !== -1; })[0];
-        if (pad) selectPad(pad);
-      });
-    });
   }
 
   // ---------------------------------------------------------------- Start

@@ -25,10 +25,7 @@ window.BARCAMP_CONFIG = {
   },
 
   pads: {
-    // true = Pads werden erst nach einem Klick eingebettet (datenschutzfreundlich:
-    // vorher wird keine Verbindung zum Pad-Anbieter aufgebaut).
-    clickToLoad: true,
-    // Links auf diese Domains im Sessionplan öffnen sich im Pad-Fenster der Seite.
+    // Links auf diese Domains im Sessionplan werden als Pad-Links mit Symbol markiert.
     hosts: ['yopad.eu'],
     // Jede Session im Sessionplan bekommt automatisch ein eigenes Pad.
     // Adresse: base + prefix + '-' + Uhrzeit + '-' + Raum + suffix, z. B.
@@ -41,27 +38,6 @@ window.BARCAMP_CONFIG = {
       prefix: 'NeIn-Barcamp-2026',
       suffix: '-365days',
     },
-    // Optional an die eingebettete Pad-Adresse angehängt (Etherpad-Parameter).
-    embedParams: 'showChat=false&showLineNumbers=false',
-    // Allgemeine Pads (yopad.eu legt ein Pad beim ersten Aufruf automatisch an).
-    // Pads zu einzelnen Sessions verlinkt ihr einfach im Sessionplan (sessions.md).
-    list: [
-      {
-        title: 'Sessionplanung & Ideen',
-        description: 'Alle Sessionvorschläge, auch die, die heute keinen Platz gefunden haben.',
-        url: 'https://yopad.eu/p/NeIn-Barcamp-2026-Ideen-365days',
-      },
-      {
-        title: 'Linksammlung',
-        description: 'Tools, Material und Links, die in den Sessions genannt wurden.',
-        url: 'https://yopad.eu/p/NeIn-Barcamp-2026-Links-365days',
-      },
-      {
-        title: 'Feedback',
-        description: 'Was nehmt ihr mit? Was wünscht ihr euch fürs nächste Mal?',
-        url: 'https://yopad.eu/p/NeIn-Barcamp-2026-Feedback-365days',
-      },
-    ],
   },
 
   design: {
